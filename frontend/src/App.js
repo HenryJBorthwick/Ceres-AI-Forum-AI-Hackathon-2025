@@ -11,10 +11,8 @@ const API_BASE = 'http://localhost:8000';
 function App() {
   const [countries, setCountries] = useState([]);
   const [levels, setLevels] = useState([]);
-  const [areas, setAreas] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
   const [selectedLevel, setSelectedLevel] = useState('');
-  const [selectedArea, setSelectedArea] = useState('');
   const [graphData, setGraphData] = useState([]);
 
   const [activeTab, setActiveTab] = useState('pulse');
@@ -40,17 +38,8 @@ function App() {
     if (selectedCountry) {
       axios.get(`${API_BASE}/levels/${selectedCountry}`).then(res => setLevels(res.data.levels));
       setSelectedLevel('');
-      setSelectedArea('');
-      setAreas([]);
     }
   }, [selectedCountry]);
-
-  useEffect(() => {
-    if (selectedCountry && selectedLevel) {
-      axios.get(`${API_BASE}/areas/${selectedCountry}/${selectedLevel}`).then(res => setAreas(res.data.areas));
-      setSelectedArea('');
-    }
-  }, [selectedLevel]);
 
   const loadGraph = async () => {
     setLoading(true);
@@ -58,7 +47,6 @@ function App() {
     try {
       let params = `country=${encodeURIComponent(selectedCountry)}`;
       if (selectedLevel) params += `&level1=${encodeURIComponent(selectedLevel)}`;
-      if (selectedArea) params += `&area=${encodeURIComponent(selectedArea)}`;
       const res = await axios.get(`${API_BASE}/graph-data?${params}`);
       setGraphData(res.data);
     } catch (err) {
@@ -150,19 +138,6 @@ function App() {
                     />
                   </div>
                 )}
-                {areas.length > 0 && (
-                  <div className="flex-1">
-                    <label htmlFor="area-select" className="block text-sm font-medium text-gray-700 mb-1">Select Area</label>
-                    <Select
-                      id="area-select"
-                      options={areas.map(a => ({ value: a, label: a }))}
-                      value={{ value: selectedArea, label: selectedArea }}
-                      onChange={option => setSelectedArea(option.value)}
-                      placeholder="Select Area"
-                      className="flex-1"
-                    />
-                  </div>
-                )}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -181,10 +156,8 @@ function App() {
                 onReset={() => {
                   setSelectedCountry('');
                   setSelectedLevel('');
-                  setSelectedArea('');
                   setGraphData([]);
                   setLevels([]);
-                  setAreas([]);
                 }} 
               />
             ) : (
