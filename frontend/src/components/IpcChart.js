@@ -26,7 +26,8 @@ function IpcChart({ data }) {
           <Label value="Population Affected (%)" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
         </YAxis>
         <Tooltip />
-        <Legend wrapperStyle={{ paddingTop: '20px' }} />
+        {/* Legend below the x-axis */}
+        <Legend wrapperStyle={{ paddingTop: '20px' }} /> 
         <Line dataKey="phase1" name="Phase 1 (Minimal)" stroke="#22c55e" strokeDasharray={getDashArray} connectNulls />
         <Line dataKey="phase2" name="Phase 2 (Stressed)" stroke="#eab308" strokeDasharray={getDashArray} connectNulls />
         <Line dataKey="phase3" name="Phase 3 (Crisis)" stroke="#f97316" strokeDasharray={getDashArray} connectNulls />

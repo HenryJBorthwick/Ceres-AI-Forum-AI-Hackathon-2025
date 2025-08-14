@@ -3,6 +3,62 @@ import random
 import os
 from datetime import datetime
 
+# Country code to name mapping
+COUNTRY_MAPPING = {
+    'AFG': 'Afghanistan',
+    'AGO': 'Angola', 
+    'BDI': 'Burundi',
+    'BEN': 'Benin',
+    'BFA': 'Burkina Faso',
+    'BGD': 'Bangladesh',
+    'CAF': 'Central African Republic',
+    'CIV': 'Côte d\'Ivoire',
+    'CMR': 'Cameroon',
+    'COD': 'Democratic Republic of Congo',
+    'CPV': 'Cape Verde',
+    'DJI': 'Djibouti',
+    'DOM': 'Dominican Republic',
+    'ECU': 'Ecuador',
+    'ETH': 'Ethiopia',
+    'GHA': 'Ghana',
+    'GIN': 'Guinea',
+    'GMB': 'Gambia',
+    'GNB': 'Guinea-Bissau',
+    'GTM': 'Guatemala',
+    'HND': 'Honduras',
+    'HTI': 'Haiti',
+    'KEN': 'Kenya',
+    'LBN': 'Lebanon',
+    'LBR': 'Liberia',
+    'LSO': 'Lesotho',
+    'MDG': 'Madagascar',
+    'MLI': 'Mali',
+    'MOZ': 'Mozambique',
+    'MRT': 'Mauritania',
+    'MWI': 'Malawi',
+    'NAM': 'Namibia',
+    'NER': 'Niger',
+    'NGA': 'Nigeria',
+    'PAK': 'Pakistan',
+    'PSE': 'Palestine',
+    'SDN': 'Sudan',
+    'SEN': 'Senegal',
+    'SLE': 'Sierra Leone',
+    'SLV': 'El Salvador',
+    'SOM': 'Somalia',
+    'SSD': 'South Sudan',
+    'SWZ': 'Eswatini',
+    'TCD': 'Chad',
+    'TGO': 'Togo',
+    'TLS': 'Timor-Leste',
+    'TZA': 'Tanzania',
+    'UGA': 'Uganda',
+    'YEM': 'Yemen',
+    'ZAF': 'South Africa',
+    'ZMB': 'Zambia',
+    'ZWE': 'Zimbabwe'
+}
+
 CSV_PATH = '../data/ipc_global_area_long_current_only.csv'
 PREDICTIONS_CSV_PATH = './dummy_data/ipc_predictions_2026.csv'
 
