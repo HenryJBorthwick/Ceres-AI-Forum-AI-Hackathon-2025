@@ -49,6 +49,7 @@ function App() {
           value={selectedCountry}
           onChange={e => setSelectedCountry(e.target.value)}
         >
+          {/* Graph Dropdown for Country */}
           <option value="">Select Country</option>
           {countries.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
@@ -58,7 +59,8 @@ function App() {
             value={selectedLevel}
             onChange={e => setSelectedLevel(e.target.value)}
           >
-            <option value="">Select Level 1</option>
+            {/* Graph Dropdown for Region */}
+            <option value="">Select Region</option>
             {levels.map(l => <option key={l} value={l}>{l}</option>)}
           </select>
         )}
@@ -68,10 +70,12 @@ function App() {
             value={selectedArea}
             onChange={e => setSelectedArea(e.target.value)}
           >
+            {/* Graph Dropdown for Area */}
             <option value="">Select Area</option>
             {areas.map(a => <option key={a} value={a}>{a}</option>)}
           </select>
         )}
+        {/* Load Graph Button */}
         <button
           className="bg-blue-500 text-white p-2 rounded"
           onClick={loadGraph}
