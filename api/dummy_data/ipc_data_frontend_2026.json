@@ -1,0 +1,38 @@
+{
+  "location": {
+    "country": "Somalia",
+    "area": "Banadir",
+    "total_population": 25000000
+  },
+  "ipc_phases": {
+    "phase_1": {
+      "description": "Minimal",
+      "affected_population": 2500000,
+      "percent_affected": 10.0
+    },
+    "phase_2": {
+      "description": "Stressed",
+      "affected_population": 5000000,
+      "percent_affected": 20.0
+    },
+    "phase_3": {
+      "description": "Crisis",
+      "affected_population": 7500000,
+      "percent_affected": 30.0
+    },
+    "phase_4": {
+      "description": "Emergency",
+      "affected_population": 7500000,
+      "percent_affected": 30.0
+    },
+    "phase_5": {
+      "description": "Catastrophe",
+      "affected_population": 2500000,
+      "percent_affected": 10.0
+    }
+  },
+  "summary": {
+    "total_affected": 25000000,
+    "total_percentage": 100.0
+  }
+}
