@@ -185,7 +185,24 @@ function App() {
               </div>
             )}
             {error && <p className="text-red-500 mb-4">{error}</p>}
-            {graphData.length > 0 && <IpcChart data={graphData} />}
+            {graphData.length > 0 ? (
+              <IpcChart data={graphData} />
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-lg shadow-xl p-6"
+                style={{ height: 500 }} // Approximate height to match graph
+              >
+                <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
+                  IPC Pulse
+                </h2>
+                <div className="flex items-center justify-center h-80 text-gray-500 text-lg">
+                  <p>Select a country and click "Load Graph" to view the IPC data.</p>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         )}
         {activeTab === 'navigator' && (
