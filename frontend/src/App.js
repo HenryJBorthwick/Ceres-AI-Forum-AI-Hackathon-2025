@@ -165,28 +165,21 @@ function App() {
                 >
                   {loading ? 'Loading...' : 'Load Graph'}
                 </motion.button>
-                {graphData.length > 0 && (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      setSelectedCountry('');
-                      setSelectedLevel('');
-                      setSelectedArea('');
-                      setGraphData([]);
-                      setLevels([]);
-                      setAreas([]);
-                    }}
-                    className="bg-red-600 text-white px-6 py-2 rounded-md ml-4"
-                  >
-                    Reset Graph
-                  </motion.button>
-                )}
               </div>
             )}
             {error && <p className="text-red-500 mb-4">{error}</p>}
             {graphData.length > 0 ? (
-              <IpcChart data={graphData} />
+              <IpcChart 
+                data={graphData} 
+                onReset={() => {
+                  setSelectedCountry('');
+                  setSelectedLevel('');
+                  setSelectedArea('');
+                  setGraphData([]);
+                  setLevels([]);
+                  setAreas([]);
+                }} 
+              />
             ) : (
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}

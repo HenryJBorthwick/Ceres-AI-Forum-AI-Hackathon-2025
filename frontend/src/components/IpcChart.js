@@ -2,7 +2,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import { motion } from 'framer-motion';
 
-function IpcChart({ data }) {
+function IpcChart({ data, onReset }) {
   // Use the chart-ready data from backend
   const chartData = data.map(d => d.chart_data);
   
@@ -69,8 +69,20 @@ function IpcChart({ data }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-lg shadow-xl p-6"
+      className="bg-white rounded-lg shadow-xl p-6 relative" // Added relative for positioning
     >
+      {onReset && (
+        // Reset button to reset the graph
+        <button
+          onClick={onReset}
+          className="absolute top-4 right-4 bg-gray-200 text-gray-800 rounded-full p-2 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          aria-label="Reset graph"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.964 7.964 0 011.5-.924l1.064-.887a1 1 0 011.532.93l-.034 3.378a1 1 0 01-.995.921h-.01a1 1 0 01-.978-1.106l.033-1.249a5.974 5.974 0 00-1.06.779l-1.064.887a1 1 0 01-1.532-.93l.034-3.378A1 1 0 014 3V2zM10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12z" clipRule="evenodd" />
+          </svg>
+        </button>
+      )}
       <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
         IPC Pulse
       </h2>
