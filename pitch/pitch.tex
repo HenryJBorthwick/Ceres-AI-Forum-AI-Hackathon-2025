@@ -1,0 +1,113 @@
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  basicstyle=\tiny\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\title{Ceres: AI-Powered Famine Prediction Platform}
+\subtitle{Using Geospatial Embeddings to Combat Global Hunger}
+\author{Team Ceres}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+% Connect (30 seconds)
+\begin{frame}{Who We Are and Our Passion}
+  \begin{center}
+    \Large
+    In 2023, nearly 700 million people faced hunger worldwide. \\
+    \vspace{1em}
+    We are Team Ceres, passionate about leveraging AI to predict and prevent famines, \\
+    ensuring no one goes hungry in our lifetime.
+  \end{center}
+\end{frame}
+
+% Problem to Solve (1 minute)
+\begin{frame}{The Global Hunger Crisis}
+  \begin{itemize}
+    \item 1 in 11 people faced hunger in 2023 (713-757 million)
+    \item Sub-Saharan Africa: 23.2\% hunger rate
+    \item Southern Asia: 281 million affected
+    \item UN SDG 2 (Zero Hunger) is off-track for 2030 goals
+    \item Current IPC analysis is slow, resource-intensive, and biased
+  \end{itemize}
+  \vspace{1em}
+  \textbf{Problem:} Analysts need faster, data-driven tools to predict famines and allocate aid effectively.
+\end{frame}
+
+% Your Big Idea (2 minutes) - Slide 1: Overview
+\begin{frame}{Our Innovation: Ceres Platform}
+  Ceres uses Google DeepMind's Alpha Earth geospatial embeddings combined with LightGBM ML models to predict IPC phases.
+  \vspace{1em}
+  \begin{itemize}
+    \item Predicts population in IPC phases 1-5 for 2025-2026
+    \item Interactive web interface for easy analysis
+    \item Meets UN brief by addressing SDG 2 with AI
+  \end{itemize}
+\end{frame}
+
+% Your Big Idea - Slide 2: Technology
+\begin{frame}{How It Works: Technical Overview}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \textbf{Backend (FastAPI + LightGBM):}
+      \begin{itemize}
+        \item Loads 64-band satellite embeddings
+        \item Predicts phase percentages
+        \item Aggregates historical IPC data
+      \end{itemize}
+    \column{0.5\textwidth}
+      \textbf{Frontend (React):}
+      \begin{itemize}
+        \item Country/Region selection
+        \item Interactive charts with Recharts
+        \item Visualizes predictions vs historical data
+      \end{itemize}
+  \end{columns}
+  \vspace{1em}
+  Model Accuracy: 81.1\% phase classification
+\end{frame}
+
+% Your Big Idea - Slide 3: Demo/Prototype
+\begin{frame}{Prototype Demonstration}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{path/to/screenshot.png} % Replace with actual screenshot path if available
+    \vspace{1em}
+    Interactive dashboard showing predictions for Afghanistan regions.
+  \end{center}
+\end{frame}
+
+% Future Impact (1.5 minutes)
+\begin{frame}{Future Impact and Next Steps}
+  \begin{itemize}
+    \item \textbf{Change:} Faster aid allocation, potentially saving millions of lives
+    \item \textbf{Why Care:} Helps achieve UN SDG 2 by 2030
+    \item \textbf{Needs:} Backtesting on full dataset, expand to all subregions
+    \item \textbf{Future:} Scale to 100m resolution predictions globally
+  \end{itemize}
+\end{frame}
+
+% Conclusion
+\begin{frame}{Thank You}
+  \begin{center}
+    \Large
+    Team Ceres: Innovating for a Hunger-Free World \\
+    \vspace{1em}
+    Questions?
+  \end{center}
+\end{frame}
+
+\end{document}
