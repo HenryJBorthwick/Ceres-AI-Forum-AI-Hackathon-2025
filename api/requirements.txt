@@ -2,3 +2,7 @@ fastapi
 uvicorn
 pandas
 python-dateutil
+lightgbm
+scikit-learn
+joblib
+numpy
