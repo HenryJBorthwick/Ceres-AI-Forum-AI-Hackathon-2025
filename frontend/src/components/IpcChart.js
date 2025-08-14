@@ -62,7 +62,33 @@ function IpcChart({ data }) {
         <YAxis domain={[0, 100]}>
           <Label value="Population Affected (%)" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
         </YAxis>
-        <Tooltip />
+        <Tooltip 
+          content={(props) => {
+            const { active, payload, label } = props;
+            if (!active || !payload || !payload.length) return null;
+
+            // Get the data for this point
+            const data = payload[0].payload;
+            const isPredicted = data.is_predicted;
+
+            // Use hist_ for historical, pred_ for predicted
+            const phasePrefix = isPredicted ? 'pred_phase' : 'hist_phase';
+            const title = `${label} (${isPredicted ? 'Predicted' : 'Historical'})`;
+
+            return (
+              <div className="bg-white p-4 border rounded shadow">
+                <p className="font-bold">{title}</p>
+                <ul>
+                  <li style={{color: '#22c55e'}}>Phase 1: {data[`${phasePrefix}1`]}%</li>
+                  <li style={{color: '#eab308'}}>Phase 2: {data[`${phasePrefix}2`]}%</li>
+                  <li style={{color: '#f97316'}}>Phase 3: {data[`${phasePrefix}3`]}%</li>
+                  <li style={{color: '#ef4444'}}>Phase 4: {data[`${phasePrefix}4`]}%</li>
+                  <li style={{color: '#991b1b'}}>Phase 5: {data[`${phasePrefix}5`]}%</li>
+                </ul>
+              </div>
+            );
+          }}
+        />
         {/* Legend below the x-axis */}
         <Legend wrapperStyle={{ paddingTop: '20px' }} />
         
