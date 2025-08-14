@@ -117,30 +117,42 @@ function App() {
               <p className="text-red-500 text-center">{error}</p>
             ) : (
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-6">
-                <Select
-                  options={countries.map(c => ({ value: c, label: c }))}
-                  value={{ value: selectedCountry, label: selectedCountry }}
-                  onChange={option => setSelectedCountry(option.value)}
-                  placeholder="Select Country"
-                  className="flex-1"
-                />
-                {levels.length > 0 && (
+                <div className="flex-1">
+                  <label htmlFor="country-select" className="block text-sm font-medium text-gray-700 mb-1">Select Country</label>
                   <Select
-                    options={levels.map(l => ({ value: l, label: l }))}
-                    value={{ value: selectedLevel, label: selectedLevel }}
-                    onChange={option => setSelectedLevel(option.value)}
-                    placeholder="Select Region"
+                    id="country-select"
+                    options={countries.map(c => ({ value: c, label: c }))}
+                    value={{ value: selectedCountry, label: selectedCountry }}
+                    onChange={option => setSelectedCountry(option.value)}
+                    placeholder="Select Country"
                     className="flex-1"
                   />
+                </div>
+                {levels.length > 0 && (
+                  <div className="flex-1">
+                    <label htmlFor="region-select" className="block text-sm font-medium text-gray-700 mb-1">Select Region</label>
+                    <Select
+                      id="region-select"
+                      options={levels.map(l => ({ value: l, label: l }))}
+                      value={{ value: selectedLevel, label: selectedLevel }}
+                      onChange={option => setSelectedLevel(option.value)}
+                      placeholder="Select Region"
+                      className="flex-1"
+                    />
+                  </div>
                 )}
                 {areas.length > 0 && (
-                  <Select
-                    options={areas.map(a => ({ value: a, label: a }))}
-                    value={{ value: selectedArea, label: selectedArea }}
-                    onChange={option => setSelectedArea(option.value)}
-                    placeholder="Select Area"
-                    className="flex-1"
-                  />
+                  <div className="flex-1">
+                    <label htmlFor="area-select" className="block text-sm font-medium text-gray-700 mb-1">Select Area</label>
+                    <Select
+                      id="area-select"
+                      options={areas.map(a => ({ value: a, label: a }))}
+                      value={{ value: selectedArea, label: selectedArea }}
+                      onChange={option => setSelectedArea(option.value)}
+                      placeholder="Select Area"
+                      className="flex-1"
+                    />
+                  </div>
                 )}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
