@@ -117,7 +117,7 @@ def merge_training_data(
 def main():
     src_dir = pathlib.Path(__file__).resolve().parent
     
-    embeddings_path = src_dir / "data" / "satellite_embeddings.csv"
+    embeddings_path = src_dir / "data" / "satellite_embeddings_level1_FAST.csv"
     labels_path = src_dir / "data" / "ipc_annual_dataset.csv"
     output_path = src_dir / "data" / "training_dataset.csv"
     
