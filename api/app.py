@@ -49,10 +49,24 @@ def get_country_code(country_name: str) -> str:
 
 @app.get("/countries")
 def get_countries():
-    country_codes = sorted(df['Country'].unique().tolist())
-    # Convert codes to names for frontend display
-    country_names = [COUNTRY_MAPPING.get(code, code) for code in country_codes]
-    return {"countries": sorted(country_names)}
+    # Only show countries that have satellite embeddings available
+    from data_loader import COUNTRIES_WITH_EMBEDDINGS
+    
+    # Filter to only countries with embeddings
+    available_countries = []
+    for code in sorted(COUNTRIES_WITH_EMBEDDINGS):
+        name = COUNTRY_MAPPING.get(code, code)
+        available_countries.append({
+            "code": code,
+            "name": name,
+            "inference_status": "satellite_ai",
+            "inference_note": "Full AI prediction using satellite data"
+        })
+    
+    return {
+        "countries": [country["name"] for country in available_countries],
+        "countries_with_info": available_countries
+    }
 
 @app.get("/levels/{country}")
 def get_levels(country: str):
@@ -152,3 +166,46 @@ def get_model_status():
         "satellite_data_path": str(model_dir / "sat_embeddings" / "sat_embeddings_recent.csv"),
         "model_path": str(model_dir / "lightgbm_population_phase_model.pkl")
     }
+
+@app.get("/country-inference-status/{country}")
+def get_country_inference_status(country: str):
+    """
+    Get detailed inference status for a specific country
+    
+    Args:
+        country: Country name (e.g., "Afghanistan")
+    
+    Returns:
+        Detailed inference status and capabilities
+    """
+    from data_loader import COUNTRIES_WITH_EMBEDDINGS, COUNTRY_MAPPING
+    
+    # Convert country name to code
+    country_code = get_country_code(country)
+    
+    if country_code in COUNTRIES_WITH_EMBEDDINGS:
+        status = {
+            "country_code": country_code,
+            "country_name": country,
+            "inference_type": "satellite_ai",
+            "inference_available": True,
+            "prediction_method": "Full AI prediction using satellite imagery",
+            "data_source": "Satellite embeddings + LightGBM model",
+            "accuracy": "High (based on 64 spectral bands)",
+            "regions_available": "All administrative regions",
+            "note": "Real-time satellite data analysis"
+        }
+    else:
+        status = {
+            "country_code": country_code,
+            "country_name": country,
+            "inference_type": "not_available",
+            "inference_available": False,
+            "prediction_method": "None",
+            "data_source": "None",
+            "accuracy": "None",
+            "regions_available": "None",
+            "note": "Country not available - no satellite data"
+        }
+    
+    return status

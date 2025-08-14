@@ -65,6 +65,14 @@ COUNTRY_MAPPING = {
 # Import the comprehensive region mapping
 from comprehensive_region_mapping import get_satellite_region_name
 
+# Countries that have satellite embeddings available for inference
+COUNTRIES_WITH_EMBEDDINGS = {
+    'AFG', 'AGO', 'BEN', 'BFA', 'BGD', 'CAF', 'CMR', 'COD', 'DJI', 'ETH',
+    'GHA', 'GIN', 'HND', 'HTI', 'KEN', 'LBN', 'MDG', 'MLI', 'MOZ', 'MRT',
+    'NER', 'NGA', 'SDN', 'SEN', 'SLE', 'SOM', 'SSD', 'TCD', 'TGO', 'TZA',
+    'UGA', 'YEM', 'ZAF', 'ZMB', 'ZWE'
+}
+
 CSV_PATH = '../data/ipc_global_area_long_current_only.csv'
 
 def load_data():
@@ -119,6 +127,10 @@ def aggregate_data(df, country, level1=None, area=None):
         pred_years = [2025]
         for pred_year in pred_years:
             try:
+                # Only generate predictions for countries with satellite embeddings
+                if country not in COUNTRIES_WITH_EMBEDDINGS:
+                    continue
+                
                 if level1:
                     # Use mapped region name for satellite embeddings
                     satellite_region = get_satellite_region_name(level1)
