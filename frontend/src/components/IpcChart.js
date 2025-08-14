@@ -1,5 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
+import { motion } from 'framer-motion';
 
 function IpcChart({ data }) {
   // Use the chart-ready data from backend
@@ -47,71 +48,84 @@ function IpcChart({ data }) {
   const showGuide = hasHistoricalData && hasPredictedData;
 
   return (
-    <div>
-      {/* Name of the graph */}
-      <h2 className="text-xl font-bold text-center mb-4 text-gray-800">
-        Ceres IPC Pulse
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-white rounded-lg shadow-xl p-6"
+    >
+      <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
+        Cerse IPC Pulse
       </h2>
       {showGuide && (
-        <p className="text-sm text-gray-600 mb-2 text-center">
-          <span className="font-medium">Chart Guide:</span> Solid lines = Historical data, Dashed lines = Predicted data
+        <p className="text-sm text-gray-600 mb-4 text-center italic">
+          Solid lines: Historical | Dashed lines: AI Predictions
         </p>
       )}
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={completeData} margin={{ top: 20, right: 30, left: 60, bottom: 60 }}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year">
-          <Label value="Year" position="insideBottom" offset={-5} style={{ textAnchor: 'middle' }} />
-        </XAxis>
-        <YAxis domain={[0, 100]}>
-          <Label value="Population Affected (%)" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
-        </YAxis>
-        <Tooltip 
-          content={(props) => {
-            const { active, payload, label } = props;
-            if (!active || !payload || !payload.length) return null;
+          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+          <XAxis dataKey="year" tick={{ fill: '#6b7280' }}>
+            <Label value="Year" position="insideBottom" offset={-5} style={{ textAnchor: 'middle', fill: '#4b5563' }} />
+          </XAxis>
+          <YAxis domain={[0, 100]} tick={{ fill: '#6b7280' }}>
+            <Label 
+              value="Population Affected (%)" 
+              angle={-90} 
+              position="insideLeft" 
+              style={{ textAnchor: 'middle', fill: '#4b5563' }} 
+            />
+          </YAxis>
+          <Tooltip 
+            wrapperStyle={{ background: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+            content={(props) => {
+              const { active, payload, label } = props;
+              if (!active || !payload || !payload.length) return null;
 
-            // Get the data for this point
-            const data = payload[0].payload;
-            const isPredicted = data.is_predicted;
+              // Get the data for this point
+              const data = payload[0].payload;
+              const isPredicted = data.is_predicted;
 
-            // Use hist_ for historical, pred_ for predicted
-            const phasePrefix = isPredicted ? 'pred_phase' : 'hist_phase';
-            const title = `${label} (${isPredicted ? 'Predicted' : 'Historical'})`;
+              // Use hist_ for historical, pred_ for predicted
+              const phasePrefix = isPredicted ? 'pred_phase' : 'hist_phase';
+              const title = `${label} (${isPredicted ? 'Predicted' : 'Historical'})`;
 
-            return (
-              <div className="bg-white p-4 border rounded shadow">
-                <p className="font-bold">{title}</p>
-                <ul>
-                  <li style={{color: '#22c55e'}}>Phase 1: {data[`${phasePrefix}1`]}%</li>
-                  <li style={{color: '#eab308'}}>Phase 2: {data[`${phasePrefix}2`]}%</li>
-                  <li style={{color: '#f97316'}}>Phase 3: {data[`${phasePrefix}3`]}%</li>
-                  <li style={{color: '#ef4444'}}>Phase 4: {data[`${phasePrefix}4`]}%</li>
-                  <li style={{color: '#991b1b'}}>Phase 5: {data[`${phasePrefix}5`]}%</li>
-                </ul>
-              </div>
-            );
-          }}
-        />
-        {/* Legend below the x-axis */}
-        <Legend wrapperStyle={{ paddingTop: '20px' }} />
-        
-        {/* Historical data lines - solid */}
-        <Line dataKey="hist_phase1" name="Phase 1 (Minimal)" stroke="#22c55e" strokeWidth={2} connectNulls />
-        <Line dataKey="hist_phase2" name="Phase 2 (Stressed)" stroke="#eab308" strokeWidth={2} connectNulls />
-        <Line dataKey="hist_phase3" name="Phase 3 (Crisis)" stroke="#f97316" strokeWidth={2} connectNulls />
-        <Line dataKey="hist_phase4" name="Phase 4 (Emergency)" stroke="#ef4444" strokeWidth={2} connectNulls />
-        <Line dataKey="hist_phase5" name="Phase 5 (Catastrophe)" stroke="#991b1b" strokeWidth={2} connectNulls />
-        
-        {/* Predicted data lines - dashed with reduced opacity, hidden from legend */}
-        <Line dataKey="pred_phase1" name="" stroke="#22c55e" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.7} connectNulls legendType="none" />
-        <Line dataKey="pred_phase2" name="" stroke="#eab308" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.7} connectNulls legendType="none" />
-        <Line dataKey="pred_phase3" name="" stroke="#f97316" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.7} connectNulls legendType="none" />
-        <Line dataKey="pred_phase4" name="" stroke="#ef4444" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.7} connectNulls legendType="none" />
-        <Line dataKey="pred_phase5" name="" stroke="#991b1b" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.7} connectNulls legendType="none" />
-      </LineChart>
-    </ResponsiveContainer>
-    </div>
+              return (
+                <div className="bg-white p-4 border rounded shadow">
+                  <p className="font-bold">{title}</p>
+                  <ul>
+                    <li style={{color: '#22c55e'}}>Phase 1: {data[`${phasePrefix}1`]}%</li>
+                    <li style={{color: '#eab308'}}>Phase 2: {data[`${phasePrefix}2`]}%</li>
+                    <li style={{color: '#f97316'}}>Phase 3: {data[`${phasePrefix}3`]}%</li>
+                    <li style={{color: '#ef4444'}}>Phase 4: {data[`${phasePrefix}4`]}%</li>
+                    <li style={{color: '#991b1b'}}>Phase 5: {data[`${phasePrefix}5`]}%</li>
+                  </ul>
+                </div>
+              );
+            }}
+          />
+          <Legend 
+            wrapperStyle={{ paddingTop: '20px', fontSize: '14px' }} 
+            iconType="circle"
+            iconSize={10}
+          />
+          
+          {/* Historical lines with animation */}
+          <Line type="monotone" dataKey="hist_phase1" name="Phase 1 (Minimal)" stroke="#22c55e" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+          <Line type="monotone" dataKey="hist_phase2" name="Phase 2 (Stressed)" stroke="#eab308" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+          <Line type="monotone" dataKey="hist_phase3" name="Phase 3 (Crisis)" stroke="#f97316" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+          <Line type="monotone" dataKey="hist_phase4" name="Phase 4 (Emergency)" stroke="#ef4444" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+          <Line type="monotone" dataKey="hist_phase5" name="Phase 5 (Catastrophe)" stroke="#991b1b" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+          
+          {/* Predicted lines */}
+          <Line type="monotone" dataKey="pred_phase1" stroke="#22c55e" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase2" stroke="#eab308" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase3" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase4" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase5" stroke="#991b1b" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+        </LineChart>
+      </ResponsiveContainer>
+    </motion.div>
   );
 }
 
