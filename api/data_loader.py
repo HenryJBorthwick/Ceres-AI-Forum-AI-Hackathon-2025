@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 
 CSV_PATH = '../data/ipc_global_area_long_current_only.csv'
+PREDICTIONS_CSV_PATH = './dummy_data/ipc_predictions_2026.csv'
 
 def load_data():
     df = pd.read_csv(CSV_PATH, comment='#')
@@ -12,6 +13,20 @@ def load_data():
     df['Number'] = pd.to_numeric(df['Number'], errors='coerce')
     df['Percentage'] = pd.to_numeric(df['Percentage'], errors='coerce')
     return df
+
+def load_prediction_data():
+    """Load the 2026 prediction data from CSV file"""
+    try:
+        df = pd.read_csv(PREDICTIONS_CSV_PATH, comment='#')
+        df['Year'] = pd.to_datetime(df['From']).dt.year
+        df['Phase'] = pd.to_numeric(df['Phase'], errors='coerce')
+        df['Number'] = pd.to_numeric(df['Number'], errors='coerce')
+        df['Percentage'] = pd.to_numeric(df['Percentage'], errors='coerce')
+        return df
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Error: The predicted data file '{PREDICTIONS_CSV_PATH}' could not be found.")
+    except Exception as e:
+        raise Exception(f"Error loading predicted data from '{PREDICTIONS_CSV_PATH}': {str(e)}")
 
 def aggregate_data(df, country, level1=None, area=None):
     # Filter data
@@ -65,30 +80,35 @@ def aggregate_data(df, country, level1=None, area=None):
             
             historic_data.insert(0, _format_json(country, level1 or area or '', total_pop, prev_phases_pct, prev_phases_num, earliest['year'] - (5 - y), False))
 
-    # Generate predicted (2026, vary crisis phases +5%)
-    last_historic = historic_data[-1]
-    pred_phases = {}
-    shift = 5  # % increase for phase 3-5
-    for phase in [1,2,3,4,5]:
-        last_pct = last_historic['ipc_phases'][f'phase_{phase}']['percent_affected']
-        if phase >= 3:
-            # Increase crisis phases by 5%
-            pred_phases[phase] = max(0, last_pct + shift)
-        else:
-            # Reduce lower phases, but ensure they don't go below 0
-            pred_phases[phase] = max(0, last_pct - (shift / 2))
+    # Generate predicted data from CSV file (will raise error if file not found)
+    predicted = []
+    prediction_df = load_prediction_data()
     
-    # Ensure total doesn't exceed 100% and redistribute if needed
-    total_pct = sum(pred_phases.values())
-    if total_pct > 100:
-        # Scale down proportionally to fit within 100%
-        pred_phases = {k: v * (100 / total_pct) for k, v in pred_phases.items()}
-    elif total_pct < 100:
-        # Add remaining percentage to phase 1 (safest assumption)
-        pred_phases[1] += (100 - total_pct)
+    # Filter prediction data the same way as historic data
+    pred_filtered = prediction_df[prediction_df['Country'] == country]
+    if level1:
+        pred_filtered = pred_filtered[pred_filtered['Level 1'] == level1]
+    if area:
+        pred_filtered = pred_filtered[pred_filtered['Area'] == area]
     
-    pred_affected = {k: (v / 100) * total_pop for k, v in pred_phases.items()}
-    predicted = [_format_json(country, level1 or area or '', total_pop, pred_phases, pred_affected, 2026, True)]
+    if not pred_filtered.empty:
+        # Aggregate prediction data by year and phase
+        pred_grouped = pred_filtered.groupby(['Year', 'Phase'])['Number'].sum().reset_index()
+        pred_years = sorted(pred_grouped['Year'].unique())
+        
+        # Generate prediction data for each year found (should be 2026)
+        for year in pred_years:
+            pred_year_data = pred_grouped[pred_grouped['Year'] == year]
+            pred_phases_pct = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+            pred_phases_num = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+            
+            for _, row in pred_year_data.iterrows():
+                phase = int(row['Phase'])
+                num = row['Number']
+                pred_phases_pct[phase] = (num / total_pop) * 100 if total_pop else 0
+                pred_phases_num[phase] = num
+            
+            predicted.append(_format_json(country, level1 or area or '', total_pop, pred_phases_pct, pred_phases_num, year, True))
 
     return historic_data + predicted
 
