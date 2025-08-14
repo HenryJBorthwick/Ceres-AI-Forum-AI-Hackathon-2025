@@ -46,13 +46,24 @@ def aggregate_data(df, country, level1=None, area=None):
     if len(historic_data) < 5:
         earliest = historic_data[0]
         for y in range(len(historic_data), 5):
-            prev_phases = {k: v * random.uniform(0.9, 1.1) for k, v in earliest['ipc_phases'].items() if isinstance(v, dict)}  # Vary ±10%
-            # Normalize to 100%
-            total_pct = sum(p['percent_affected'] for p in prev_phases.values())
-            for p in prev_phases.values():
-                p['percent_affected'] /= (total_pct / 100)
-                p['affected_population'] = (p['percent_affected'] / 100) * total_pop
-            historic_data.insert(0, _format_json(country, level1 or area or '', total_pop, prev_phases, {k: v['affected_population'] for k, v in prev_phases.items()}, earliest['year'] - (5 - y), False))
+            # Create varied phase percentages (±10% variation)
+            prev_phases_pct = {}
+            prev_phases_num = {}
+            for phase in [1, 2, 3, 4, 5]:
+                base_pct = earliest['ipc_phases'][f'phase_{phase}']['percent_affected']
+                # Apply random variation ±10%
+                varied_pct = base_pct * random.uniform(0.9, 1.1)
+                prev_phases_pct[phase] = max(0, varied_pct)  # Ensure non-negative
+                prev_phases_num[phase] = (prev_phases_pct[phase] / 100) * total_pop
+            
+            # Normalize to ensure total = 100%
+            total_pct = sum(prev_phases_pct.values())
+            if total_pct > 0:
+                for phase in prev_phases_pct:
+                    prev_phases_pct[phase] = (prev_phases_pct[phase] / total_pct) * 100
+                    prev_phases_num[phase] = (prev_phases_pct[phase] / 100) * total_pop
+            
+            historic_data.insert(0, _format_json(country, level1 or area or '', total_pop, prev_phases_pct, prev_phases_num, earliest['year'] - (5 - y), False))
 
     # Generate predicted (2026, vary crisis phases +5%)
     last_historic = historic_data[-1]
@@ -61,12 +72,21 @@ def aggregate_data(df, country, level1=None, area=None):
     for phase in [1,2,3,4,5]:
         last_pct = last_historic['ipc_phases'][f'phase_{phase}']['percent_affected']
         if phase >= 3:
-            pred_phases[phase] = last_pct + shift
+            # Increase crisis phases by 5%
+            pred_phases[phase] = max(0, last_pct + shift)
         else:
-            pred_phases[phase] = last_pct - (shift / 2)  # Reduce lower phases
-    # Normalize
+            # Reduce lower phases, but ensure they don't go below 0
+            pred_phases[phase] = max(0, last_pct - (shift / 2))
+    
+    # Ensure total doesn't exceed 100% and redistribute if needed
     total_pct = sum(pred_phases.values())
-    pred_phases = {k: v / (total_pct / 100) for k, v in pred_phases.items()}
+    if total_pct > 100:
+        # Scale down proportionally to fit within 100%
+        pred_phases = {k: v * (100 / total_pct) for k, v in pred_phases.items()}
+    elif total_pct < 100:
+        # Add remaining percentage to phase 1 (safest assumption)
+        pred_phases[1] += (100 - total_pct)
+    
     pred_affected = {k: (v / 100) * total_pop for k, v in pred_phases.items()}
     predicted = [_format_json(country, level1 or area or '', total_pop, pred_phases, pred_affected, 2026, True)]
 
@@ -78,13 +98,13 @@ def _format_json(country, area, total_pop, phases_pct, phases_num, year, is_pred
     for p in [1,2,3,4,5]:
         ipc_phases[f'phase_{p}'] = {
             "description": descriptions[p],
-            "affected_population": round(phases_num.get(p, 0)),
-            "percent_affected": round(phases_pct.get(p, 0), 1)
+            "affected_population": int(round(phases_num.get(p, 0))),  # Convert to Python int
+            "percent_affected": float(round(phases_pct.get(p, 0), 1))  # Convert to Python float
         }
     return {
-        "location": {"country": country, "area": area, "total_population": int(total_pop)},
+        "location": {"country": str(country), "area": str(area), "total_population": int(total_pop)},
         "ipc_phases": ipc_phases,
         "summary": {"total_affected": int(total_pop), "total_percentage": 100.0},
-        "year": year,
-        "is_predicted": is_predicted
+        "year": int(year),  # Convert to Python int
+        "is_predicted": bool(is_predicted)  # Convert to Python bool
     }

@@ -7,7 +7,7 @@ app = FastAPI()
 # Enable CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],  # Allow both localhost and 127.0.0.1, fixed CORS issue
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -34,5 +34,10 @@ def get_areas(country: str, level1: str):
 
 @app.get("/graph-data")
 def get_graph_data(country: str, level1: str | None = None, area: str | None = None):
-    data = data_loader.aggregate_data(df, country, level1, area)
-    return data
+    try:
+        data = data_loader.aggregate_data(df, country, level1, area)
+        return data
+    except Exception as e:
+        # Return a proper error response instead of letting FastAPI handle it
+        # This ensures CORS headers are always sent
+        return {"error": "Failed to load data", "message": str(e), "country": country, "level1": level1, "area": area}
