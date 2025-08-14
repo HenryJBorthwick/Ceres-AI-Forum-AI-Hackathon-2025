@@ -48,6 +48,10 @@ function IpcChart({ data }) {
 
   return (
     <div>
+      {/* Name of the graph */}
+      <h2 className="text-xl font-bold text-center mb-4 text-gray-800">
+        Ceres IPC Pulse
+      </h2>
       {showGuide && (
         <p className="text-sm text-gray-600 mb-2 text-center">
           <span className="font-medium">Chart Guide:</span> Solid lines = Historical data, Dashed lines = Predicted data

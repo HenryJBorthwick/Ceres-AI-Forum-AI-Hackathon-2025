@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">IPC Data Visualization</h1>
+      <h1 className="text-2xl font-bold mb-4">Ceres IPC Predictor</h1>
       <div className="flex space-x-4 mb-4">
         <select
           className="border p-2 rounded"
