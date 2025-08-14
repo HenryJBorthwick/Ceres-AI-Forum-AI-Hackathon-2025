@@ -132,11 +132,11 @@ function IpcChart({ data }) {
           <Line type="monotone" dataKey="hist_phase5" name="Phase 5 (Catastrophe)" stroke="#991b1b" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
           
           {/* Predicted lines - Do not display predicted phases in the legend (use legendType="none" to prevent regression) */}
-          <Line type="monotone" dataKey="pred_phase1" name="" stroke="#22c55e" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase2" name="" stroke="#eab308" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase3" name="" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase4" name="" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase5" name="" stroke="#991b1b" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase1" name="" stroke="#22c55e" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={{ r: 4 }} activeDot={{ r: 6 }} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase2" name="" stroke="#eab308" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={{ r: 4 }} activeDot={{ r: 6 }} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase3" name="" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={{ r: 4 }} activeDot={{ r: 6 }} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase4" name="" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={{ r: 4 }} activeDot={{ r: 6 }} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase5" name="" stroke="#991b1b" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={{ r: 4 }} activeDot={{ r: 6 }} legendType="none" />
         </LineChart>
       </ResponsiveContainer>
     </motion.div>
