@@ -113,26 +113,9 @@ def aggregate_data(df, country, level1=None, area=None):
     # Calculate average total pop from historical years
     average_total_pop = np.mean(historic_total_pops) if historic_total_pops else 0
     
-    # Generate dummy historic if <5 years
-    if len(historic_data) < 5 and average_total_pop > 0:
-        earliest = historic_data[0]
-        for y in range(len(historic_data), 5):
-            prev_phases_pct = {}
-            for phase in [1, 2, 3, 4, 5]:
-                base_pct = earliest['ipc_phases'][f'phase_{phase}']['percent_affected']
-                varied_pct = base_pct * random.uniform(0.9, 1.1)
-                prev_phases_pct[phase] = max(0, varied_pct)
-            total_pct = sum(prev_phases_pct.values())
-            if total_pct > 0:
-                for phase in prev_phases_pct:
-                    prev_phases_pct[phase] = (prev_phases_pct[phase] / total_pct) * 100
-            prev_phases_num = {p: (prev_phases_pct[p] / 100) * average_total_pop for p in [1, 2, 3, 4, 5]}
-            
-            historic_data.insert(0, _format_json(country, level1 or area or '', average_total_pop, prev_phases_pct, prev_phases_num, earliest['year'] - (5 - y), False))
-    
-    # Generate AI predicted data for 2025
+    # Generate AI predicted data for 2025 (only if we have historical data for population baseline)
     predicted = []
-    if model_available:
+    if model_available and average_total_pop > 0:
         pred_years = [2025]
         for pred_year in pred_years:
             try:
@@ -152,7 +135,13 @@ def aggregate_data(df, country, level1=None, area=None):
             except ValueError as e:
                 print(f"Warning: Could not generate prediction for {country} {level1 or area or ''} in {pred_year}: {str(e)}")
     
-    return historic_data + predicted
+    # Combine historical and predicted data
+    all_data = historic_data + predicted
+    
+    # Sort chronologically by year
+    all_data_sorted = sorted(all_data, key=lambda x: x['year'])
+    
+    return all_data_sorted
 
 def _format_json(country, area, total_pop, phases_pct, phases_num, year, is_predicted):
     ipc_phases = {}
