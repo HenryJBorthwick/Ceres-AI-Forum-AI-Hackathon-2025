@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 
 function IpcChart({ data }) {
   // Prepare chart data: year, phases, isPredicted
@@ -17,10 +17,14 @@ function IpcChart({ data }) {
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+      <LineChart data={chartData} margin={{ top: 20, right: 30, left: 60, bottom: 60 }}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year" />
-        <YAxis domain={[0, 100]} />
+        <XAxis dataKey="year">
+          <Label value="Year" position="insideBottom" offset={-5} style={{ textAnchor: 'middle' }} />
+        </XAxis>
+        <YAxis domain={[0, 100]}>
+          <Label value="Population Affected (%)" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
+        </YAxis>
         <Tooltip />
         <Legend />
         <Line dataKey="phase1" name="Phase 1 (Minimal)" stroke="#22c55e" strokeDasharray={getDashArray} connectNulls />
