@@ -91,7 +91,7 @@ function IpcChart({ data, onReset }) {
           Solid lines: Historical | Dashed lines: AI Predictions
         </p>
       )}
-              <ResponsiveContainer width="100%" height={500}>
+              <ResponsiveContainer width="100%" height={700}>
         <LineChart data={completeData} margin={{ top: 20, right: 30, left: 60, bottom: 60 }}>
           <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
           <XAxis dataKey="year" tick={{ fill: '#6b7280' }}>
