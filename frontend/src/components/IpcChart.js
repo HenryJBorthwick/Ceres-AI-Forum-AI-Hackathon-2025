@@ -47,6 +47,23 @@ function IpcChart({ data }) {
   const hasPredictedData = predictedData.length > 0;
   const showGuide = hasHistoricalData && hasPredictedData;
 
+  // Custom legend to only show historical phases. Do not display predicted phases on the legend of the IPC Pulse Graph to prevent regression.
+  const renderLegend = (props) => {
+    const { payload } = props;
+    return (
+      <ul style={{ padding: '20px 0 0 0', fontSize: '14px', textAlign: 'center', margin: '0 auto', listStyleType: 'none' }}>
+        {payload.filter(item => item.dataKey && item.dataKey.startsWith('hist_')).map((entry, index) => (
+          <li key={`item-${index}`} style={{ display: 'inline-block', margin: '0 10px' }}>
+            <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }}>
+              <circle cx="16" cy="16" r="10" fill={entry.color} stroke="none" />
+            </svg>
+            <span style={{ color: entry.color }}>{entry.value}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.95 }}
@@ -55,7 +72,7 @@ function IpcChart({ data }) {
       className="bg-white rounded-lg shadow-xl p-6"
     >
       <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
-        Cerse IPC Pulse
+        IPC Pulse
       </h2>
       {showGuide && (
         <p className="text-sm text-gray-600 mb-4 text-center italic">
@@ -104,11 +121,8 @@ function IpcChart({ data }) {
               );
             }}
           />
-          <Legend 
-            wrapperStyle={{ paddingTop: '20px', fontSize: '14px' }} 
-            iconType="circle"
-            iconSize={10}
-          />
+          {/* Replace with custom legend */}
+          <Legend content={renderLegend} />
           
           {/* Historical lines with animation */}
           <Line type="monotone" dataKey="hist_phase1" name="Phase 1 (Minimal)" stroke="#22c55e" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
@@ -117,12 +131,12 @@ function IpcChart({ data }) {
           <Line type="monotone" dataKey="hist_phase4" name="Phase 4 (Emergency)" stroke="#ef4444" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
           <Line type="monotone" dataKey="hist_phase5" name="Phase 5 (Catastrophe)" stroke="#991b1b" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
           
-          {/* Predicted lines */}
-          <Line type="monotone" dataKey="pred_phase1" stroke="#22c55e" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase2" stroke="#eab308" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase3" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase4" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
-          <Line type="monotone" dataKey="pred_phase5" stroke="#991b1b" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          {/* Predicted lines - Do not display predicted phases in the legend (use legendType="none" to prevent regression) */}
+          <Line type="monotone" dataKey="pred_phase1" name="" stroke="#22c55e" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase2" name="" stroke="#eab308" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase3" name="" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase4" name="" stroke="#ef4444" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
+          <Line type="monotone" dataKey="pred_phase5" name="" stroke="#991b1b" strokeWidth={3} strokeDasharray="5 5" strokeOpacity={0.7} dot={false} legendType="none" />
         </LineChart>
       </ResponsiveContainer>
     </motion.div>
