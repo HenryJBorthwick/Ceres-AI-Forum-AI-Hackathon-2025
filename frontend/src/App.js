@@ -70,20 +70,22 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
-      <header className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+      <header className="bg-gradient-to-r from-indigo-600 to-indigo-800 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-8 flex justify-between items-center">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl font-bold text-indigo-600"
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-extrabold text-white tracking-wide"
           >
-            Cerse
+            {/* company name */}
+            Ceres
           </motion.h1>
-          <p className="text-lg text-gray-600">AI IPC Prediction</p>
+          <p className="text-xl text-indigo-100 font-medium">AI IPC Prediction Platform</p>
         </div>
       </header>
       
-      <nav className="bg-indigo-600 text-white">
+      <nav className="bg-indigo-800 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex space-x-4">
             {/* IPC Pulse Button */}
