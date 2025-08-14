@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       <header className="bg-gradient-to-r from-indigo-600 to-indigo-800 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-8 flex justify-between items-center">
+        <div className="px-2 py-6 flex justify-between items-center">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ function App() {
       </header>
       
       <nav className="bg-indigo-800 text-white">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="px-2">
           <div className="flex space-x-4">
             {/* IPC Pulse Button */}
             <button 
@@ -106,12 +106,12 @@ function App() {
         </div>
       </nav>
       
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="px-2 py-6">
         {activeTab === 'pulse' && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-6"
+            className="bg-white rounded-lg shadow-lg p-4" // Reduced padding
           >
             {countriesLoading ? (
               <p className="text-center text-gray-600">Loading countries...</p>
@@ -185,7 +185,7 @@ function App() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-lg shadow-xl p-6"
+                className="bg-white rounded-lg shadow-xl p-4" // Reduced padding
                 style={{ height: 500 }} // Approximate height to match graph
               >
                 <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
@@ -202,7 +202,8 @@ function App() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-6 text-center"
+            className="bg-white rounded-lg shadow-lg p-4" // Reduced padding
+            style={{ height: 500 }}
           >
             <h2 className="text-2xl font-bold mb-4">IPC Navigator</h2>
             <p className="text-gray-600">Visualize predictions on an interactive map. Coming soon!</p>

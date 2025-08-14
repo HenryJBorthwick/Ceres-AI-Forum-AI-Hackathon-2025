@@ -69,7 +69,7 @@ function IpcChart({ data, onReset }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-lg shadow-xl p-6 relative" // Added relative for positioning
+      className="bg-white rounded-lg shadow-xl p-4 relative" // Reduced padding
     >
       {onReset && (
         // Reset button to reset the graph
