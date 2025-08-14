@@ -1,13 +1,13 @@
 # IPC Data Visualization Tool
 
-A web-based tool for visualizing IPC (Integrated Food Security Phase Classification) data with historical trends and predictions.
+A web-based tool for visualizing IPC (Integrated Food Security Phase Classification) data with historical trends and AI-powered predictions.
 
 ## Features
 
 - Interactive dropdowns for country, level, and area selection
 - Line charts showing IPC phases over time
-- Historical data visualization
-- Predicted data for 2026 (dashed lines)
+- Historical data visualization (up to 2024)
+- **AI-powered predictions for 2025 using satellite embeddings**
 - Responsive design with Tailwind CSS
 
 ## Setup
@@ -39,12 +39,34 @@ A web-based tool for visualizing IPC (Integrated Food Security Phase Classificat
    pip install -r requirements.txt
    ```
 
-5. Start the backend server:
+5. **Install OpenMP library (required for AI predictions):**
+   
+   **macOS:**
+   ```bash
+   brew install libomp
+   export DYLD_LIBRARY_PATH="$(brew --prefix libomp)/lib:$DYLD_LIBRARY_PATH"
+   export OMP="$(brew --prefix libomp)"
+   ```
+   
+   **Linux (Ubuntu/Debian):**
+   ```bash
+   sudo apt-get update
+   sudo apt-get install libomp-dev
+   ```
+   
+   **Linux (Fedora):**
+   ```bash
+   sudo dnf install libomp-devel
+   ```
+
+6. Start the backend server:
    ```bash
    uvicorn app:app --reload
    ```
    
    The backend will run on http://localhost:8000
+
+   **Note:** If you see "Warning: Could not load ML model" in the logs, the AI predictions won't work. Ensure libomp is properly installed and environment variables are set.
 
 ### Frontend (frontend/)
 

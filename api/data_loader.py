@@ -2,6 +2,9 @@ import pandas as pd
 import random
 import os
 from datetime import datetime
+import numpy as np
+
+from model.inference_example import predict_by_level1_or_area, model_available
 
 # Country code to name mapping
 COUNTRY_MAPPING = {
@@ -59,8 +62,10 @@ COUNTRY_MAPPING = {
     'ZWE': 'Zimbabwe'
 }
 
+# Import the comprehensive region mapping
+from comprehensive_region_mapping import get_satellite_region_name
+
 CSV_PATH = '../data/ipc_global_area_long_current_only.csv'
-PREDICTIONS_CSV_PATH = './dummy_data/ipc_predictions_2026.csv'
 
 def load_data():
     df = pd.read_csv(CSV_PATH, comment='#')
@@ -69,20 +74,6 @@ def load_data():
     df['Number'] = pd.to_numeric(df['Number'], errors='coerce')
     df['Percentage'] = pd.to_numeric(df['Percentage'], errors='coerce')
     return df
-
-def load_prediction_data():
-    """Load the 2026 prediction data from CSV file"""
-    try:
-        df = pd.read_csv(PREDICTIONS_CSV_PATH, comment='#')
-        df['Year'] = pd.to_datetime(df['From']).dt.year
-        df['Phase'] = pd.to_numeric(df['Phase'], errors='coerce')
-        df['Number'] = pd.to_numeric(df['Number'], errors='coerce')
-        df['Percentage'] = pd.to_numeric(df['Percentage'], errors='coerce')
-        return df
-    except FileNotFoundError:
-        raise FileNotFoundError(f"Error: The predicted data file '{PREDICTIONS_CSV_PATH}' could not be found.")
-    except Exception as e:
-        raise Exception(f"Error loading predicted data from '{PREDICTIONS_CSV_PATH}': {str(e)}")
 
 def aggregate_data(df, country, level1=None, area=None):
     # Filter data
@@ -94,78 +85,73 @@ def aggregate_data(df, country, level1=None, area=None):
     
     if filtered.empty:
         return []
-
+    
     # Aggregate by year and phase
     grouped = filtered.groupby(['Year', 'Phase'])['Number'].sum().reset_index()
     years = sorted(grouped['Year'].unique())
-    total_pop = filtered['Total country population'].max()  # Assume max is consistent
-
-    # Get historic data per year
+    
+    # Get historic data per year (up to 2024)
     historic_data = []
+    historic_total_pops = []
     for year in years:
+        if year >= 2025:
+            continue
         year_data = grouped[grouped['Year'] == year]
+        total_pop_year = year_data['Number'].sum()
+        if total_pop_year == 0:
+            continue
         phases = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
         affected = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
         for _, row in year_data.iterrows():
             phase = int(row['Phase'])
             num = row['Number']
-            phases[phase] = (num / total_pop) * 100 if total_pop else 0
+            phases[phase] = (num / total_pop_year) * 100 if total_pop_year else 0
             affected[phase] = num
-        historic_data.append(_format_json(country, level1 or area or '', total_pop, phases, affected, year, False))
-
+        historic_data.append(_format_json(country, level1 or area or '', total_pop_year, phases, affected, year, False))
+        historic_total_pops.append(total_pop_year)
+    
+    # Calculate average total pop from historical years
+    average_total_pop = np.mean(historic_total_pops) if historic_total_pops else 0
+    
     # Generate dummy historic if <5 years
-    if len(historic_data) < 5:
+    if len(historic_data) < 5 and average_total_pop > 0:
         earliest = historic_data[0]
         for y in range(len(historic_data), 5):
-            # Create varied phase percentages (±10% variation)
             prev_phases_pct = {}
-            prev_phases_num = {}
             for phase in [1, 2, 3, 4, 5]:
                 base_pct = earliest['ipc_phases'][f'phase_{phase}']['percent_affected']
-                # Apply random variation ±10%
                 varied_pct = base_pct * random.uniform(0.9, 1.1)
-                prev_phases_pct[phase] = max(0, varied_pct)  # Ensure non-negative
-                prev_phases_num[phase] = (prev_phases_pct[phase] / 100) * total_pop
-            
-            # Normalize to ensure total = 100%
+                prev_phases_pct[phase] = max(0, varied_pct)
             total_pct = sum(prev_phases_pct.values())
             if total_pct > 0:
                 for phase in prev_phases_pct:
                     prev_phases_pct[phase] = (prev_phases_pct[phase] / total_pct) * 100
-                    prev_phases_num[phase] = (prev_phases_pct[phase] / 100) * total_pop
+            prev_phases_num = {p: (prev_phases_pct[p] / 100) * average_total_pop for p in [1, 2, 3, 4, 5]}
             
-            historic_data.insert(0, _format_json(country, level1 or area or '', total_pop, prev_phases_pct, prev_phases_num, earliest['year'] - (5 - y), False))
-
-    # Generate predicted data from CSV file (will raise error if file not found)
+            historic_data.insert(0, _format_json(country, level1 or area or '', average_total_pop, prev_phases_pct, prev_phases_num, earliest['year'] - (5 - y), False))
+    
+    # Generate AI predicted data for 2025
     predicted = []
-    prediction_df = load_prediction_data()
+    if model_available:
+        pred_years = [2025]
+        for pred_year in pred_years:
+            try:
+                if level1:
+                    # Use mapped region name for satellite embeddings
+                    satellite_region = get_satellite_region_name(level1)
+                    pred = predict_by_level1_or_area(level1=satellite_region, year=pred_year)
+                elif area:
+                    pred = predict_by_level1_or_area(area_id=f"{country}_{area.replace(' ', '_')}", year=pred_year)
+                else:
+                    pred = predict_by_level1_or_area(country=country, year=pred_year)
+                
+                phases_pct = {int(k.split()[-1]): v for k, v in pred['phase_percentages'].items()}
+                total_pop = average_total_pop
+                phases_num = {p: (phases_pct[p] / 100.0) * total_pop for p in range(1,6)}
+                predicted.append(_format_json(country, level1 or area or '', total_pop, phases_pct, phases_num, pred_year, True))
+            except ValueError as e:
+                print(f"Warning: Could not generate prediction for {country} {level1 or area or ''} in {pred_year}: {str(e)}")
     
-    # Filter prediction data the same way as historic data
-    pred_filtered = prediction_df[prediction_df['Country'] == country]
-    if level1:
-        pred_filtered = pred_filtered[pred_filtered['Level 1'] == level1]
-    if area:
-        pred_filtered = pred_filtered[pred_filtered['Area'] == area]
-    
-    if not pred_filtered.empty:
-        # Aggregate prediction data by year and phase
-        pred_grouped = pred_filtered.groupby(['Year', 'Phase'])['Number'].sum().reset_index()
-        pred_years = sorted(pred_grouped['Year'].unique())
-        
-        # Generate prediction data for each year found (should be 2026)
-        for year in pred_years:
-            pred_year_data = pred_grouped[pred_grouped['Year'] == year]
-            pred_phases_pct = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
-            pred_phases_num = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
-            
-            for _, row in pred_year_data.iterrows():
-                phase = int(row['Phase'])
-                num = row['Number']
-                pred_phases_pct[phase] = (num / total_pop) * 100 if total_pop else 0
-                pred_phases_num[phase] = num
-            
-            predicted.append(_format_json(country, level1 or area or '', total_pop, pred_phases_pct, pred_phases_num, year, True))
-
     return historic_data + predicted
 
 def _format_json(country, area, total_pop, phases_pct, phases_num, year, is_predicted):
@@ -181,9 +167,9 @@ def _format_json(country, area, total_pop, phases_pct, phases_num, year, is_pred
             "is_predicted": bool(is_predicted)
         }
     return {
-        "location": {"country": str(country), "area": str(area), "total_population": int(total_pop)},
+        "location": {"country": str(country), "area": str(area), "total_population": int(round(total_pop))},
         "ipc_phases": ipc_phases,
-        "summary": {"total_affected": int(total_pop), "total_percentage": 100.0},
+        "summary": {"total_affected": int(round(total_pop)), "total_percentage": 100.0},
         "year": int(year),  # Convert to Python int
         "is_predicted": bool(is_predicted),  # Convert to Python bool
         # Add chart-ready format

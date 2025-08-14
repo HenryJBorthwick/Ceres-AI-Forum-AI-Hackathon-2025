@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 import os
 
+# DEPRECATED: This script was used for generating dummy prediction data
+# Now that we have the AI model generating real predictions, this is no longer needed
+# The model generates predictions for 2025 and 2026 using satellite embeddings
+
+print("This script is deprecated. AI model predictions are now used instead of dummy data.")
+print("Predictions for 2025 and 2026 are generated dynamically using satellite embeddings.")
+
+# Original code commented out below for reference
+"""
 path = os.path.join(os.path.dirname(__file__), 'dummy_data', 'ipc_predictions_2026.csv')
 df = pd.read_csv(path)
 
@@ -85,3 +94,4 @@ df = df.drop('unique_area', axis=1)  # Clean up
 # Save back
 df.to_csv(path, index=False)
 print("Predictions file updated successfully.")
+"""

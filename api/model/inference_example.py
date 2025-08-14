@@ -102,13 +102,14 @@ def predict_population_phases(new_data):
     
     return results
 
-def predict_by_level1_or_area(level1=None, area_id=None, year=2024):
+def predict_by_level1_or_area(country=None, level1=None, area_id=None, year=2024):
     """
-    Predict population phases by Level1 or Area_ID using satellite embeddings
+    Predict population phases by country, Level1 or Area_ID using satellite embeddings
     
     Args:
+        country: Country code (e.g., "AFG")
         level1: Level 1 administrative division name
-        area_id: Area ID (e.g., "AFG_Badakhshan")
+        area_id: Area ID (e.g., "AFG_Badakhshan") 
         year: Year for prediction (default 2024)
     
     Returns:
@@ -123,31 +124,37 @@ def predict_by_level1_or_area(level1=None, area_id=None, year=2024):
     if embeddings_df is None:
         raise ValueError("Satellite embeddings data not found")
     
-    # Filter by Level1 or Area_ID
+    # Determine mask
     if area_id:
-        filtered_df = embeddings_df[
-            (embeddings_df['Area_ID'] == area_id) & 
-            (embeddings_df['year'] == year)
-        ]
+        mask = embeddings_df['Area_ID'] == area_id
     elif level1:
-        filtered_df = embeddings_df[
-            (embeddings_df['Level1'] == level1) & 
-            (embeddings_df['year'] == year)
-        ]
+        mask = embeddings_df['Level1'] == level1
+    elif country:
+        mask = embeddings_df['Area_ID'].str.startswith(country + '_')
     else:
-        raise ValueError("Must provide either level1 or area_id")
+        raise ValueError("Must provide country, level1 or area_id")
     
-    if filtered_df.empty:
+    # Find available years
+    available_years = embeddings_df[mask]['year'].unique()
+    if len(available_years) == 0:
         raise ValueError(f"No satellite data found for the specified criteria")
     
-    # Extract band features (convert from band_0...band_63 to feature_band_0...feature_band_63)
+    # Select the most recent year <= requested year, or latest if all future
+    available_years = sorted(available_years)
+    use_year = max((y for y in available_years if y <= year), default=available_years[-1])
+    
+    # Filter using selected year
+    filtered_df = embeddings_df[mask & (embeddings_df['year'] == use_year)]
+    
+    if filtered_df.empty:
+        raise ValueError(f"No satellite data found for year {use_year}")
+    
+    # Extract band features
     band_cols = [f'band_{i}' for i in range(64)]
     
-    # Check if satellite data has the expected columns
     if not all(col in filtered_df.columns for col in band_cols):
         raise ValueError(f"Satellite data missing expected band columns")
     
-    # Create feature DataFrame with the expected column names
     feature_data = pd.DataFrame()
     for i in range(64):
         feature_data[f'feature_band_{i}'] = filtered_df[f'band_{i}']
@@ -155,35 +162,37 @@ def predict_by_level1_or_area(level1=None, area_id=None, year=2024):
     # Make predictions
     predictions = predict_population_phases(feature_data)
     
-    # Aggregate predictions if multiple rows (take average)
+    # Aggregate if multiple
     if len(predictions) > 1:
-        # Average all phase percentages
         avg_percentages = {}
         for phase in phase_names:
             avg_percentages[phase] = round(
                 np.mean([pred['phase_percentages'][phase] for pred in predictions]), 1
             )
         
-        # Find dominant phase from averaged percentages
         dominant_phase = max(avg_percentages, key=avg_percentages.get)
         confidence = round(max(avg_percentages.values()), 1)
         
         result = {
+            'country': country,
             'level1': level1,
             'area_id': area_id,
             'year': year,
             'phase_percentages': avg_percentages,
             'dominant_phase': dominant_phase,
             'confidence': confidence,
-            'samples_used': len(predictions)
+            'samples_used': len(predictions),
+            'used_embedding_year': use_year
         }
     else:
         result = predictions[0]
         result.update({
+            'country': country,
             'level1': level1,
             'area_id': area_id,
             'year': year,
-            'samples_used': 1
+            'samples_used': 1,
+            'used_embedding_year': use_year
         })
     
     return result
