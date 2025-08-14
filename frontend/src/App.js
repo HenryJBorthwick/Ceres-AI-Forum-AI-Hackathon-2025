@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       <header className="bg-gradient-to-r from-indigo-600 to-indigo-800 shadow-lg">
-        <div className="px-2 py-6 flex justify-between items-center">
+        <div className="px-6 py-6 flex justify-between items-center">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ function App() {
       </header>
       
       <nav className="bg-indigo-800 text-white">
-        <div className="px-2">
+        <div className="px-6">
           <div className="flex space-x-4">
             {/* IPC Pulse Button */}
             <button 
@@ -106,7 +106,7 @@ function App() {
         </div>
       </nav>
       
-      <main className="px-2 py-6">
+      <main className="px-6 py-8">
         {activeTab === 'pulse' && (
           <motion.div 
             initial={{ opacity: 0 }}
