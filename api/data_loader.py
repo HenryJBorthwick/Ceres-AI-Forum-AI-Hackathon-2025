@@ -175,12 +175,25 @@ def _format_json(country, area, total_pop, phases_pct, phases_num, year, is_pred
         ipc_phases[f'phase_{p}'] = {
             "description": descriptions[p],
             "affected_population": int(round(phases_num.get(p, 0))),  # Convert to Python int
-            "percent_affected": float(round(phases_pct.get(p, 0), 1))  # Convert to Python float
+            "percent_affected": float(round(phases_pct.get(p, 0), 1)),  # Convert to Python float
+            # Add chart-ready data with prediction flag
+            "chart_value": float(round(phases_pct.get(p, 0), 1)),
+            "is_predicted": bool(is_predicted)
         }
     return {
         "location": {"country": str(country), "area": str(area), "total_population": int(total_pop)},
         "ipc_phases": ipc_phases,
         "summary": {"total_affected": int(total_pop), "total_percentage": 100.0},
         "year": int(year),  # Convert to Python int
-        "is_predicted": bool(is_predicted)  # Convert to Python bool
+        "is_predicted": bool(is_predicted),  # Convert to Python bool
+        # Add chart-ready format
+        "chart_data": {
+            "year": int(year),
+            "phase1": float(round(phases_pct.get(1, 0), 1)),
+            "phase2": float(round(phases_pct.get(2, 0), 1)),
+            "phase3": float(round(phases_pct.get(3, 0), 1)),
+            "phase4": float(round(phases_pct.get(4, 0), 1)),
+            "phase5": float(round(phases_pct.get(5, 0), 1)),
+            "is_predicted": bool(is_predicted)
+        }
     }
