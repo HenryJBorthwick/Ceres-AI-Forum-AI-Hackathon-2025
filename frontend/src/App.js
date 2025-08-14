@@ -201,13 +201,13 @@ function App() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-gray-700 leading-relaxed"
               >
-                Our AI-powered platform combines historical IPC (Integrated Food Security Phase Classification) data 
-                with cutting-edge satellite imagery embeddings from Google's AlphaEarth model to predict future food security phases, 
-                helping organizations make informed decisions about humanitarian interventions.
+                We built a custom AI-powered platform that connects two critical data sources: historical IPC (Integrated Food Security Phase Classification) data 
+                and cutting-edge satellite imagery embeddings from Google's AlphaEarth model. Our custom AI integrates these data sources to predict future food security phases, 
+                helping organisations make informed decisions about humanitarian interventions.
               </motion.p>
             </div>
 
-            {/* Overall System Flow */}
+            {/* Model Training and Data Pipeline */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -218,48 +218,141 @@ function App() {
                 <svg className="w-8 h-8 mr-3 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2h2a2 2 0 002-2z" />
                 </svg>
-                Overall System Flow
+                Model Training and Data Pipeline
               </h3>
               <p className="text-gray-700 mb-6">
-                Our system is a sophisticated data pipeline that enriches local IPC datasets with satellite imagery embeddings, 
-                combining three main components: local data sources, geospatial libraries, and remote processing services.
+                We built our custom AI model using machine learning Python frameworks like TensorFlow and LightGBM, training on UN recognised IPC data combined with Google's revolutionary AlphaEarth embeddings. 
+                Due to time constraints, we focused on large administrative regions (AD1 level), though given more time, 
+                the model could be made more accurate by incorporating finer-grained AD2 level data.
               </p>
               
-              <div className="grid md:grid-cols-5 gap-4">
-                <div className="text-center">
-                  <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">📝</span>
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 mb-6">
+                <h4 className="text-lg font-semibold text-indigo-700 mb-6 text-center">Google AlphaEarth Embeddings Integration</h4>
+                <div className="flex items-center justify-center mb-6">
+                  {/* Enhanced Animation representation */}
+                  <div className="flex items-center space-x-12">
+                    <motion.div 
+                      className="text-center"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                    >
+                      <div className="bg-green-100 rounded-lg p-4 mb-3 shadow-md">
+                        <span className="text-3xl">🛰️</span>
+                      </div>
+                      <p className="text-sm font-bold text-green-700">AlphaEarth Data</p>
+                      <p className="text-xs text-gray-600">Climate, Soil, Vegetation</p>
+                      <p className="text-xs text-gray-600">64-dimensional embeddings</p>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-indigo-600 flex flex-col items-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1, duration: 0.5 }}
+                    >
+                      <div className="relative w-24 h-8 flex items-center justify-center overflow-hidden">
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, delay: 0.4, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, delay: 0.8, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-center"
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.5, duration: 0.8 }}
+                    >
+                      <div className="bg-purple-100 rounded-lg p-4 mb-3 shadow-md">
+                        <span className="text-3xl">🤖</span>
+                      </div>
+                      <p className="text-sm font-bold text-purple-700">Custom AI Model</p>
+                      <p className="text-xs text-gray-600">TensorFlow & LightGBM</p>
+                      <p className="text-xs text-gray-600">Pattern Recognition</p>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-indigo-600 flex flex-col items-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 2, duration: 0.5 }}
+                    >
+                      <div className="relative w-24 h-8 flex items-center justify-center overflow-hidden">
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, delay: 0.5, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, delay: 0.9, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                        <motion.svg 
+                          className="w-6 h-6 absolute" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [-24, 0, 24, 48], opacity: [0, 1, 1, 0] }}
+                          transition={{ repeat: Infinity, duration: 2, delay: 1.3, ease: "linear" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-center"
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 2.5, duration: 0.8 }}
+                    >
+                      <div className="bg-red-100 rounded-lg p-4 mb-3 shadow-md">
+                        <span className="text-3xl">📊</span>
+                      </div>
+                      <p className="text-sm font-bold text-red-700">IPC Prediction</p>
+                      <p className="text-xs text-gray-600">2025 Forecast</p>
+                      <p className="text-xs text-gray-600">Phase Classification</p>
+                    </motion.div>
                   </div>
-                  <h4 className="font-semibold text-blue-700 mb-2">1. Data Source</h4>
-                  <p className="text-sm text-gray-600">Read local IPC dataset and extract countries and years</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">🗺️</span>
-                  </div>
-                  <h4 className="font-semibold text-green-700 mb-2">2. Boundaries</h4>
-                  <p className="text-sm text-gray-600">Download administrative boundaries using pygadm library</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-yellow-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">🔄</span>
-                  </div>
-                  <h4 className="font-semibold text-yellow-700 mb-2">3. Translation</h4>
-                  <p className="text-sm text-gray-600">Convert local maps to Google Earth Engine format</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">🤖</span>
-                  </div>
-                  <h4 className="font-semibold text-purple-700 mb-2">4. Processing</h4>
-                  <p className="text-sm text-gray-600">Extract satellite embeddings using AlphaEarth model</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-indigo-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">📦</span>
-                  </div>
-                  <h4 className="font-semibold text-indigo-700 mb-2">5. Output</h4>
-                  <p className="text-sm text-gray-600">Generate enriched dataset with satellite embeddings</p>
                 </div>
               </div>
             </motion.div>
@@ -281,12 +374,12 @@ function App() {
                 <div>
                   <p className="text-gray-700 mb-4">
                     AlphaEarth Foundations is Google DeepMind's revolutionary AI model that acts as a "virtual satellite" 
-                    to map our planet in unprecedented detail. It synthesizes vast amounts of Earth observation data into 
+                    to map our planet in unprecedented detail. It synthesises vast amounts of Earth observation data into 
                     64-dimensional numerical vectors called embeddings.
                   </p>
                   <h4 className="text-lg font-semibold mb-3 text-purple-700">Key Innovation</h4>
                   <p className="text-gray-700 mb-4">
-                    Each 10x10 meter pixel on Earth gets a unique 64-number "fingerprint" that captures comprehensive 
+                    Each 10x10 metre pixel on Earth gets a unique 64-number "fingerprint" that captures comprehensive 
                     information about that location for a given year. These embeddings are analysis-ready and consistent, 
                     even in areas with missing data or cloud cover.
                   </p>
@@ -405,7 +498,7 @@ function App() {
                 <div className="space-y-4">
                   <p className="text-gray-700">
                     Our advanced AI algorithms combine historical IPC trends with AlphaEarth satellite embeddings 
-                    to predict future food security phases for 2026, enabling proactive humanitarian planning.
+                    to predict future food security phases for 2025 based on yearly embeddings from 2024, enabling proactive humanitarian planning.
                   </p>
                   <h4 className="text-lg font-semibold text-indigo-600">Prediction Methodology</h4>
                   <ul className="space-y-2 text-gray-700">
@@ -431,7 +524,7 @@ function App() {
                       <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      Crisis escalation probability modeling
+                      Crisis escalation probability modelling
                     </li>
                     <li className="flex items-start">
                       <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -507,7 +600,7 @@ function App() {
                   <h4 className="text-lg font-semibold mb-3 text-indigo-600">Historical Data (Solid Lines)</h4>
                   <ul className="space-y-2 text-gray-700">
                     <li>• Shows actual IPC phase data from past years</li>
-                    <li>• Each color represents a different IPC phase</li>
+                    <li>• Each colour represents a different IPC phase</li>
                     <li>• Line thickness indicates population percentages</li>
                     <li>• Trends help identify seasonal patterns</li>
                     <li>• Based on official IPC assessments and reports</li>
@@ -516,7 +609,7 @@ function App() {
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-indigo-600">AI Predictions (Dashed Lines)</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Forecasts for 2026 based on historical patterns</li>
+                    <li>• Forecasts for 2025 based on 2024 embeddings</li>
                     <li>• Dashed lines distinguish predictions from facts</li>
                     <li>• Incorporates satellite embedding data</li>
                     <li>• Considers crisis escalation probabilities</li>
@@ -524,53 +617,13 @@ function App() {
                   </ul>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Use Cases Section */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-lg p-8"
-            >
-              <h3 className="text-2xl font-bold text-indigo-700 mb-6 text-center">Who Can Benefit from This Platform?</h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="bg-white rounded-lg p-4 shadow-md mb-3">
-                    <svg className="w-12 h-12 mx-auto text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-indigo-700">Humanitarian Organizations</h4>
-                  <p className="text-sm text-gray-600 mt-2">Plan interventions and resource allocation based on predictive insights</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white rounded-lg p-4 shadow-md mb-3">
-                    <svg className="w-12 h-12 mx-auto text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-indigo-700">Government Agencies</h4>
-                  <p className="text-sm text-gray-600 mt-2">Inform policy decisions and early warning systems with AI predictions</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white rounded-lg p-4 shadow-md mb-3">
-                    <svg className="w-12 h-12 mx-auto text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-indigo-700">Donors & Funders</h4>
-                  <p className="text-sm text-gray-600 mt-2">Make evidence-based funding decisions using satellite-enhanced data</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white rounded-lg p-4 shadow-md mb-3">
-                    <svg className="w-12 h-12 mx-auto text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-indigo-700">Researchers</h4>
-                  <p className="text-sm text-gray-600 mt-2">Study food security trends with cutting-edge satellite embedding data</p>
-                </div>
+              <div className="mt-6 bg-green-50 p-4 rounded-lg">
+                <h5 className="font-semibold text-green-800 mb-2">Under-Resourced Areas Coverage</h5>
+                <p className="text-sm text-green-700">
+                  Some regions are missing historical data because traditional monitoring systems are limited. 
+                  Our model uses satellite embeddings to predict IPC phases for any size and any location, 
+                  helping provide crucial insights for under-resourced areas that lack comprehensive historical data.
+                </p>
               </div>
             </motion.div>
           </motion.div>
