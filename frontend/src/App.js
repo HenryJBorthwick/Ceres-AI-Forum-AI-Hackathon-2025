@@ -76,12 +76,12 @@ function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-extrabold text-white tracking-wide"
+            className="text-5xl font-extrabold text-white tracking-wide"
           >
             {/* company name */}
             Ceres
           </motion.h1>
-          <p className="text-xl text-indigo-100 font-medium">AI IPC Prediction Platform</p>
+          <p className="text-2xl text-indigo-100 font-medium">AI IPC Prediction Platform</p>
         </div>
       </header>
       
@@ -91,7 +91,7 @@ function App() {
             {/* IPC Pulse Button */}
             <button 
               onClick={() => setActiveTab('pulse')}
-              className={`py-4 px-6 ${activeTab === 'pulse' ? 'bg-indigo-700' : ''}`}
+              className={`py-5 px-8 text-lg ${activeTab === 'pulse' ? 'bg-indigo-700' : ''}`}
             >
               IPC Pulse
             </button>
@@ -111,7 +111,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-4" // Reduced padding
+            className="bg-white rounded-lg shadow-lg p-8" // Increased padding
           >
             {countriesLoading ? (
               <p className="text-center text-gray-600">Loading countries...</p>
@@ -161,7 +161,7 @@ function App() {
                   whileTap={{ scale: 0.95 }}
                   onClick={loadGraph}
                   disabled={!selectedCountry || loading}
-                  className="bg-indigo-600 text-white px-6 py-2 rounded-md disabled:opacity-50"
+                  className="bg-indigo-600 text-white px-8 py-3 rounded-md disabled:opacity-50 text-lg"
                 >
                   {loading ? 'Loading...' : 'Load Graph'}
                 </motion.button>
@@ -185,8 +185,8 @@ function App() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-lg shadow-xl p-4" // Reduced padding
-                style={{ height: 500 }} // Approximate height to match graph
+                className="bg-white rounded-lg shadow-xl p-8" // Increased padding
+                style={{ height: 600 }} // Increased height to match larger graph
               >
                 <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
                   IPC Pulse
@@ -202,7 +202,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-4" // Reduced padding
+                          className="bg-white rounded-lg shadow-lg p-8" // Increased padding
             style={{ height: 500 }}
           >
             <h2 className="text-2xl font-bold mb-4">IPC Navigator</h2>

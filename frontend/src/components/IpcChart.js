@@ -69,7 +69,7 @@ function IpcChart({ data, onReset }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-lg shadow-xl p-4 relative" // Reduced padding
+      className="bg-white rounded-lg shadow-xl p-8 relative" // Increased padding
     >
       {onReset && (
         // Reset button to reset the graph
@@ -83,7 +83,7 @@ function IpcChart({ data, onReset }) {
           </svg>
         </button>
       )}
-      <h2 className="text-2xl font-bold text-center mb-6 text-indigo-800">
+      <h2 className="text-3xl font-bold text-center mb-8 text-indigo-800">
         IPC Pulse
       </h2>
       {showGuide && (
@@ -91,7 +91,7 @@ function IpcChart({ data, onReset }) {
           Solid lines: Historical | Dashed lines: AI Predictions
         </p>
       )}
-      <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer width="100%" height={500}>
         <LineChart data={completeData} margin={{ top: 20, right: 30, left: 60, bottom: 60 }}>
           <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
           <XAxis dataKey="year" tick={{ fill: '#6b7280' }}>
