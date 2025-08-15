@@ -15,8 +15,8 @@
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
-\title{Ceres: AI-Powered Famine Prediction Platform}
-\subtitle{Using Geospatial Embeddings to Combat Global Hunger}
+\title{Ceres: AI IPC Prediction Platform}
+\subtitle{Assisting Humanitarian Response with Geospatial Intelligence}
 \author{Team Ceres}
 \date{\today}
 
@@ -28,75 +28,76 @@
 \begin{frame}{Who We Are and Our Passion}
   \begin{center}
     \Large
-    In 2023, nearly 700 million people faced hunger worldwide. \\
+    Zero Hunger is the \#2 UN Sustainable Development Goal. \\
     \vspace{1em}
-    We are Team Ceres, passionate about leveraging AI to predict and prevent famines, \\
-    ensuring no one goes hungry in our lifetime.
+    We are Team Ceres, we leveraging the recent advances in AI technology to create meaningful tools to assist humanitarian organizations in their operations. \\
   \end{center}
 \end{frame}
 
 % Problem to Solve (1 minute)
 \begin{frame}{The Global Hunger Crisis}
   \begin{itemize}
-    \item 1 in 11 people faced hunger in 2023 (713-757 million)
-    \item Sub-Saharan Africa: 23.2\% hunger rate
-    \item Southern Asia: 281 million affected
-    \item UN SDG 2 (Zero Hunger) is off-track for 2030 goals
-    \item Current IPC analysis is slow, resource-intensive, and biased
+    \item Current IPC analysis is performed on the ground by humanitarian organizations.
+    \item This is a slow and resource-intensive process.
+    \item This poses a challenge for humanitarian organizations to allocate aid effectively.
   \end{itemize}
-  \vspace{1em}
-  \textbf{Problem:} Analysts need faster, data-driven tools to predict famines and allocate aid effectively.
 \end{frame}
 
 % Your Big Idea (2 minutes) - Slide 1: Overview
 \begin{frame}{Our Innovation: Ceres Platform}
-  Ceres uses Google DeepMind's Alpha Earth geospatial embeddings combined with LightGBM ML models to predict IPC phases.
+  Ceres AI IPC Prediction leverages Google DeepMind's Alpha Earth geospatial embeddings combined with LightGBM ML models to predict IPC phases.
   \vspace{1em}
   \begin{itemize}
-    \item Predicts population in IPC phases 1-5 for 2025-2026
-    \item Interactive web interface for easy analysis
-    \item Meets UN brief by addressing SDG 2 with AI
+    \item Embeddings offer rich information about the environment.
+    \item In a format AI models love.
+    \item Collected and updated continuously.
+    \item Versatile for use in a variety metrics.
   \end{itemize}
 \end{frame}
 
 % Your Big Idea - Slide 2: Technology
 \begin{frame}{How It Works: Technical Overview}
-  \begin{columns}
-    \column{0.5\textwidth}
-      \textbf{Backend (FastAPI + LightGBM):}
+  \begin{center}
+    \begin{enumerate}
+      \item \textbf{Input Data Sources:}
       \begin{itemize}
-        \item Loads 64-band satellite embeddings
-        \item Predicts phase percentages
-        \item Aggregates historical IPC data
+        \item Country/Region IPC historical data
+        \item Country/Region Satellite embeddings
       \end{itemize}
-    \column{0.5\textwidth}
-      \textbf{Frontend (React):}
-      \begin{itemize}
-        \item Country/Region selection
-        \item Interactive charts with Recharts
-        \item Visualizes predictions vs historical data
-      \end{itemize}
-  \end{columns}
-  \vspace{1em}
-  Model Accuracy: 81.1\% phase classification
+      \vspace{0.5em}
+      \item \textbf{AI Model:} LightGBM trains on the data
+      \vspace{0.5em}
+      \item \textbf{Backend:} Python FastAPI manages and serves predictions and historical data
+      \vspace{0.5em}
+      \item \textbf{Frontend:} React + Recharts displays the data in a human friendly way.
+    \end{enumerate}
+  \end{center}
 \end{frame}
 
 % Your Big Idea - Slide 3: Demo/Prototype
 \begin{frame}{Prototype Demonstration}
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{path/to/screenshot.png} % Replace with actual screenshot path if available
+    \textbf{Interactive Dashboard Features:}
     \vspace{1em}
-    Interactive dashboard showing predictions for Afghanistan regions.
+    \begin{itemize}
+      \item Country/Region selection interface
+      \item Historical IPC phase data
+      \item AI predicted IPC phase predictions
+      \item About page with more technical information
+    \end{itemize}
+    \vspace{1em}
+    \textit{Demo: Afghanistan and its regions.}
   \end{center}
 \end{frame}
 
 % Future Impact (1.5 minutes)
 \begin{frame}{Future Impact and Next Steps}
   \begin{itemize}
-    \item \textbf{Change:} Faster aid allocation, potentially saving millions of lives
-    \item \textbf{Why Care:} Helps achieve UN SDG 2 by 2030
-    \item \textbf{Needs:} Backtesting on full dataset, expand to all subregions
-    \item \textbf{Future:} Scale to 100m resolution predictions globally
+    \item Continious and faster IPC phase prediction enables effective and efficient humanitarian aid management.
+    \item Helps achieve UN SDG 2 by 2030 by supporting humanitarian decision-making
+    \item Uses the latest and cutting edge software technologies.
+    \item Scale to higher resolution data.
+    \item Could be extended to metrics for other UN Sustainable Development Goals.
   \end{itemize}
 \end{frame}
 
@@ -104,7 +105,7 @@
 \begin{frame}{Thank You}
   \begin{center}
     \Large
-    Team Ceres: Innovating for a Hunger-Free World \\
+    Team Ceres: Leveraging AI for Efficient Humanitarian Operations \\
     \vspace{1em}
     Questions?
   \end{center}
