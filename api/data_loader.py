@@ -75,6 +75,32 @@ COUNTRIES_WITH_EMBEDDINGS = {
 
 CSV_PATH = '../data/ipc_global_area_long_current_only.csv'
 
+# Global data validator instance
+_data_validator = None
+
+def get_data_validator():
+    """Get or create the global data validator instance"""
+    global _data_validator
+    if _data_validator is None:
+        from data_validator import DataValidator
+        ipc_data = load_data()
+        satellite_embeddings = load_satellite_embeddings_data()
+        _data_validator = DataValidator(ipc_data, satellite_embeddings)
+    return _data_validator
+
+def load_satellite_embeddings_data():
+    """Load satellite embeddings data for validation"""
+    try:
+        sat_data_path = os.path.join(os.path.dirname(__file__), 'model', 'sat_embeddings', 'sat_embeddings_recent.csv')
+        if os.path.exists(sat_data_path):
+            return pd.read_csv(sat_data_path)
+        else:
+            print(f"Warning: Satellite embeddings file not found at {sat_data_path}")
+            return pd.DataFrame()
+    except Exception as e:
+        print(f"Warning: Could not load satellite embeddings: {e}")
+        return pd.DataFrame()
+
 def load_data():
     df = pd.read_csv(CSV_PATH, comment='#')
     df['Year'] = pd.to_datetime(df['From']).dt.year
@@ -82,6 +108,16 @@ def load_data():
     df['Number'] = pd.to_numeric(df['Number'], errors='coerce')
     df['Percentage'] = pd.to_numeric(df['Percentage'], errors='coerce')
     return df
+
+def get_valid_countries():
+    """Get countries that have both IPC data and satellite embeddings"""
+    validator = get_data_validator()
+    return validator.get_valid_countries()
+
+def get_valid_regions_for_country(country_code):
+    """Get valid regions for a country that exist in both datasets"""
+    validator = get_data_validator()
+    return validator.get_valid_regions_for_country(country_code)
 
 def aggregate_data(df, country, level1=None, area=None):
     # Filter data
@@ -131,10 +167,20 @@ def aggregate_data(df, country, level1=None, area=None):
                 if country not in COUNTRIES_WITH_EMBEDDINGS:
                     continue
                 
+                # Validate that the region can be used for inference
+                validator = get_data_validator()
+                if level1 and not validator.validate_region_for_inference(country, level1):
+                    print(f"Warning: Region {level1} in {country} cannot be used for inference")
+                    continue
+                
                 if level1:
                     # Use mapped region name for satellite embeddings
-                    satellite_region = get_satellite_region_name(level1)
-                    pred = predict_by_level1_or_area(level1=satellite_region, year=pred_year)
+                    satellite_region = validator.get_satellite_region_name_for_inference(country, level1)
+                    if satellite_region:
+                        pred = predict_by_level1_or_area(level1=satellite_region, year=pred_year)
+                    else:
+                        print(f"Warning: Could not map region {level1} to satellite data for {country}")
+                        continue
                 elif area:
                     pred = predict_by_level1_or_area(area_id=f"{country}_{area.replace(' ', '_')}", year=pred_year)
                 else:

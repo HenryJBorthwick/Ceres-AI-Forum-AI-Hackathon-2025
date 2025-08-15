@@ -100,7 +100,7 @@ REGION_MAPPING = {
     'Androy': 'Androy',      # Exact match
     'Anosy': 'Anosy',        # Exact match
     'Atsimo Andrefana': 'Atsimo Andrefana',  # Exact match
-    'Atsimo Atsinana': 'Atsimo Atsinana',  # Confirmed discrepancy
+    'Atsimo Atsinana': 'Atsimo Atsinanana',  # Confirmed discrepancy
     'Atsimo Atsinanana': 'Atsimo Atsinanana',  # Exact match
     'Atsimo-Atsinana': 'Atsimo Atsinanana',  # Confirmed discrepancy
     'Atsimo-andrefana': 'Atsimo Andrefana',  # Confirmed discrepancy
@@ -174,6 +174,106 @@ REGION_MAPPING = {
 def get_satellite_region_name(ipc_region_name):
     """Convert IPC region names to satellite embedding region names"""
     return REGION_MAPPING.get(ipc_region_name, ipc_region_name)
+
+def get_ipc_region_name(satellite_region_name):
+    """Convert satellite embedding region names back to IPC region names"""
+    # Create reverse mapping
+    reverse_mapping = {v: k for k, v in REGION_MAPPING.items()}
+    return reverse_mapping.get(satellite_region_name, satellite_region_name)
+
+def validate_region_mapping(ipc_region_name, satellite_region_name):
+    """Validate if a region mapping is correct"""
+    mapped_name = get_satellite_region_name(ipc_region_name)
+    return mapped_name == satellite_region_name
+
+def get_available_regions_for_country(country_code, ipc_data, satellite_embeddings):
+    """
+    Get regions that are available in both IPC data and satellite embeddings for a country
+    
+    Args:
+        country_code: Country code (e.g., 'AFG')
+        ipc_data: DataFrame containing IPC data
+        satellite_embeddings: DataFrame containing satellite embeddings
+    
+    Returns:
+        List of valid region names that can be used for inference
+    """
+    # Get regions from IPC data for this country
+    ipc_regions = set(ipc_data[ipc_data['Country'] == country_code]['Level 1'].dropna().unique())
+    
+    # Get regions from satellite embeddings for this country
+    sat_regions = set(satellite_embeddings[satellite_embeddings['Country'] == country_code]['Level1'].unique())
+    
+    # Find regions that exist in both datasets
+    valid_regions = []
+    
+    for ipc_region in ipc_regions:
+        # Check if the IPC region name directly matches a satellite region
+        if ipc_region in sat_regions:
+            valid_regions.append(ipc_region)
+        else:
+            # Check if the mapped name exists in satellite regions
+            mapped_name = get_satellite_region_name(ipc_region)
+            if mapped_name in sat_regions:
+                valid_regions.append(ipc_region)
+            else:
+                # Check if any satellite region maps back to this IPC region
+                for sat_region in sat_regions:
+                    if get_ipc_region_name(sat_region) == ipc_region:
+                        valid_regions.append(ipc_region)
+                        break
+    
+    return sorted(list(set(valid_regions)))
+
+def get_region_mapping_status(country_code, ipc_data, satellite_embeddings):
+    """
+    Get detailed mapping status for regions in a country
+    
+    Returns:
+        Dictionary with mapping status for each region
+    """
+    ipc_regions = set(ipc_data[ipc_data['Country'] == country_code]['Level 1'].dropna().unique())
+    sat_regions = set(satellite_embeddings[satellite_embeddings['Country'] == country_code]['Level1'].unique())
+    
+    mapping_status = {}
+    
+    for ipc_region in ipc_regions:
+        if ipc_region in sat_regions:
+            mapping_status[ipc_region] = {
+                'status': 'exact_match',
+                'satellite_name': ipc_region,
+                'mapping_type': 'direct'
+            }
+        else:
+            mapped_name = get_satellite_region_name(ipc_region)
+            if mapped_name in sat_regions:
+                mapping_status[ipc_region] = {
+                    'status': 'mapped',
+                    'satellite_name': mapped_name,
+                    'mapping_type': 'manual_mapping'
+                }
+            else:
+                # Check reverse mapping
+                reverse_mapped = None
+                for sat_region in sat_regions:
+                    if get_ipc_region_name(sat_region) == ipc_region:
+                        reverse_mapped = sat_region
+                        break
+                
+                if reverse_mapped:
+                    mapping_status[ipc_region] = {
+                        'status': 'reverse_mapped',
+                        'satellite_name': reverse_mapped,
+                        'mapping_type': 'reverse_mapping'
+                    }
+                else:
+                    mapping_status[ipc_region] = {
+                        'status': 'unmapped',
+                        'satellite_name': None,
+                        'mapping_type': 'none'
+                    }
+    
+    return mapping_status
 
 # Summary of mapping status:
 # - Exact matches: Regions that have identical names in both sources

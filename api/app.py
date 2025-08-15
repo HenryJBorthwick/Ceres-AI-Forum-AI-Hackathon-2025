@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import data_loader
-from data_loader import COUNTRY_MAPPING
+from data_loader import COUNTRY_MAPPING, get_valid_countries, get_valid_regions_for_country
 import sys
 import os
 import logging
@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from model.inference_example import predict_by_level1_or_area, load_satellite_embeddings
 from model.inference_example import model_available
+import pandas as pd
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -49,32 +50,61 @@ def get_country_code(country_name: str) -> str:
 
 @app.get("/countries")
 def get_countries():
-    # Only show countries that have satellite embeddings available
-    from data_loader import COUNTRIES_WITH_EMBEDDINGS
-    
-    # Filter to only countries with embeddings
-    available_countries = []
-    for code in sorted(COUNTRIES_WITH_EMBEDDINGS):
-        name = COUNTRY_MAPPING.get(code, code)
-        available_countries.append({
-            "code": code,
-            "name": name,
-            "inference_status": "satellite_ai",
-            "inference_note": "Full AI prediction using satellite data"
-        })
-    
-    return {
-        "countries": [country["name"] for country in available_countries],
-        "countries_with_info": available_countries
-    }
+    """Get countries that have both IPC data and satellite embeddings"""
+    try:
+        valid_countries = get_valid_countries()
+        
+        # Format response for frontend compatibility
+        countries_list = [country["name"] for country in valid_countries]
+        countries_with_info = valid_countries
+        
+        return {
+            "countries": countries_list,
+            "countries_with_info": countries_with_info
+        }
+    except Exception as e:
+        logger.error(f"Error getting valid countries: {e}")
+        # Fallback to old method if validation fails
+        from data_loader import COUNTRIES_WITH_EMBEDDINGS
+        
+        available_countries = []
+        for code in sorted(COUNTRIES_WITH_EMBEDDINGS):
+            name = COUNTRY_MAPPING.get(code, code)
+            available_countries.append({
+                "code": code,
+                "name": name,
+                "inference_status": "satellite_ai",
+                "inference_note": "Full AI prediction using satellite data"
+            })
+        
+        return {
+            "countries": [country["name"] for country in available_countries],
+            "countries_with_info": available_countries
+        }
 
 @app.get("/levels/{country}")
 def get_levels(country: str):
-    # Convert country name back to code for data filtering
-    country_code = get_country_code(country)
-    filtered = df[df['Country'] == country_code]
-    levels = filtered['Level 1'].dropna().unique().tolist()
-    return {"levels": sorted(levels)}
+    """Get valid regions for a country that exist in both IPC data and satellite embeddings"""
+    try:
+        # Convert country name back to code for data filtering
+        country_code = get_country_code(country)
+        
+        # Use new validation system
+        valid_regions = get_valid_regions_for_country(country_code)
+        
+        if not valid_regions:
+            # Fallback to old method if validation fails
+            filtered = df[df['Country'] == country_code]
+            valid_regions = filtered['Level 1'].dropna().unique().tolist()
+        
+        return {"levels": sorted(valid_regions)}
+    except Exception as e:
+        logger.error(f"Error getting valid regions for {country}: {e}")
+        # Fallback to old method
+        country_code = get_country_code(country)
+        filtered = df[df['Country'] == country_code]
+        levels = filtered['Level 1'].dropna().unique().tolist()
+        return {"levels": sorted(levels)}
 
 @app.get("/areas/{country}/{level1}")
 def get_areas(country: str, level1: str):
@@ -178,34 +208,91 @@ def get_country_inference_status(country: str):
     Returns:
         Detailed inference status and capabilities
     """
-    from data_loader import COUNTRIES_WITH_EMBEDDINGS, COUNTRY_MAPPING
-    
-    # Convert country name to code
-    country_code = get_country_code(country)
-    
-    if country_code in COUNTRIES_WITH_EMBEDDINGS:
-        status = {
-            "country_code": country_code,
+    try:
+        # Use new validation system
+        valid_countries = get_valid_countries()
+        country_info = next((c for c in valid_countries if c["name"] == country), None)
+        
+        if country_info:
+            status = {
+                "country_code": country_info["code"],
+                "country_name": country,
+                "inference_type": "satellite_ai",
+                "inference_available": True,
+                "prediction_method": "Full AI prediction using satellite imagery",
+                "data_source": "Satellite embeddings + LightGBM model",
+                "accuracy": "High (based on 64 spectral bands)",
+                "regions_available": f"{country_info['valid_regions_count']} administrative regions",
+                "note": "Real-time satellite data analysis"
+            }
+        else:
+            # Fallback to old method
+            from data_loader import COUNTRIES_WITH_EMBEDDINGS
+            
+            country_code = get_country_code(country)
+            if country_code in COUNTRIES_WITH_EMBEDDINGS:
+                status = {
+                    "country_code": country_code,
+                    "country_name": country,
+                    "inference_type": "satellite_ai",
+                    "inference_available": True,
+                    "prediction_method": "Full AI prediction using satellite imagery",
+                    "data_source": "Satellite embeddings + LightGBM model",
+                    "accuracy": "High (based on 64 spectral bands)",
+                    "regions_available": "All administrative regions",
+                    "note": "Real-time satellite data analysis"
+                }
+            else:
+                status = {
+                    "country_code": country_code,
+                    "country_name": country,
+                    "inference_type": "not_available",
+                    "inference_available": False,
+                    "prediction_method": "None",
+                    "data_source": "None",
+                    "accuracy": "None",
+                    "regions_available": "None",
+                    "note": "Country not available - no satellite data"
+                }
+        
+        return status
+    except Exception as e:
+        logger.error(f"Error getting country inference status for {country}: {e}")
+        # Return basic status
+        return {
+            "country_code": get_country_code(country),
             "country_name": country,
-            "inference_type": "satellite_ai",
-            "inference_available": True,
-            "prediction_method": "Full AI prediction using satellite imagery",
-            "data_source": "Satellite embeddings + LightGBM model",
-            "accuracy": "High (based on 64 spectral bands)",
-            "regions_available": "All administrative regions",
-            "note": "Real-time satellite data analysis"
-        }
-    else:
-        status = {
-            "country_code": country_code,
-            "country_name": country,
-            "inference_type": "not_available",
+            "inference_type": "unknown",
             "inference_available": False,
-            "prediction_method": "None",
-            "data_source": "None",
-            "accuracy": "None",
-            "regions_available": "None",
-            "note": "Country not available - no satellite data"
+            "note": f"Error checking status: {str(e)}"
         }
-    
-    return status
+
+@app.get("/data-validation-report")
+def get_data_validation_report():
+    """Get comprehensive data validation report"""
+    try:
+        from data_validator import DataValidator
+        
+        # Create validator instance
+        validator = DataValidator(df, data_loader.load_satellite_embeddings_data())
+        
+        # Get coverage summary
+        coverage = validator.get_data_coverage_summary()
+        
+        # Get unmapped regions (limit to first 50 for performance)
+        unmapped = validator.get_unmapped_regions()[:50]
+        
+        # Get satellite-only regions (limit to first 50 for performance)
+        satellite_only = validator.get_satellite_only_regions()[:50]
+        
+        return {
+            "coverage_summary": coverage,
+            "unmapped_regions_count": len(validator.get_unmapped_regions()),
+            "unmapped_regions_sample": unmapped,
+            "satellite_only_regions_count": len(validator.get_satellite_only_regions()),
+            "satellite_only_regions_sample": satellite_only,
+            "validation_timestamp": str(pd.Timestamp.now())
+        }
+    except Exception as e:
+        logger.error(f"Error generating validation report: {e}")
+        return {"error": f"Could not generate validation report: {str(e)}"}

@@ -1,0 +1,495 @@
+IPC Data to Satellite Embeddings Mapping Report
+============================================================
+
+Total Countries: 35
+Total Valid Regions: 351
+Coverage Percentage: 67.5%
+
+Mapping Status Breakdown:
+  Exact Match: 278
+  Mapped: 73
+  Reverse Mapped: 0
+  Unmapped: 181
+
+Country-by-Country Breakdown:
+----------------------------------------
+
+Afghanistan (AFG):
+  Valid Regions: 8
+    Badakhshan -> Badakhshan (exact_match)
+    Baghlan -> Baghlan (exact_match)
+    Kunar -> Kunar (exact_match)
+    Kunduz -> Kunduz (exact_match)
+    Laghman -> Laghman (exact_match)
+    Nangarhar -> Nangarhar (exact_match)
+    Nuristan -> Nuristan (exact_match)
+    Takhar -> Takhar (exact_match)
+
+Angola (AGO):
+  Valid Regions: 3
+    Cunene -> Cunene (exact_match)
+    Huíla -> Huíla (exact_match)
+    Namibe -> Namibe (exact_match)
+
+Benin (BEN):
+  Valid Regions: 12
+    Alibori -> Alibori (exact_match)
+    Atacora -> Atakora (mapped)
+    Atlantique -> Atlantique (exact_match)
+    Borgou -> Borgou (exact_match)
+    Collines -> Collines (exact_match)
+    Couffo -> Kouffo (mapped)
+    Donga -> Donga (exact_match)
+    Littoral -> Littoral (exact_match)
+    Mono -> Mono (exact_match)
+    Oueme -> Ouémé (mapped)
+    Plateau -> Plateau (exact_match)
+    Zou -> Zou (exact_match)
+
+Burkina Faso (BFA):
+  Valid Regions: 11
+    Boucle du Mouhoun -> Boucle du Mouhoun (exact_match)
+    Cascades -> Cascades (exact_match)
+    Centre -> Centre (exact_match)
+    Centre-Est -> Centre-Est (exact_match)
+    Centre-Nord -> Centre-Nord (exact_match)
+    Centre-Ouest -> Centre-Ouest (exact_match)
+    Centre-Sud -> Centre-Sud (exact_match)
+    Est -> Est (exact_match)
+    Nord -> Nord (exact_match)
+    Sahel -> Sahel (exact_match)
+    Sud-Ouest -> Sud-Ouest (exact_match)
+
+Bangladesh (BGD):
+  Valid Regions: 8
+    Barisal -> Barisal (exact_match)
+    Chittagong -> Chittagong (exact_match)
+    Dhaka -> Dhaka (exact_match)
+    Khulna -> Khulna (exact_match)
+    Mymensingh -> Mymensingh (exact_match)
+    Rajshahi -> Rajshahi (exact_match)
+    Rangpur -> Rangpur (exact_match)
+    Sylhet -> Sylhet (exact_match)
+
+Central African Republic (CAF):
+  Valid Regions: 14
+    Bamingui-Bangoran -> Bamingui-Bangoran (exact_match)
+    Bangui -> Bangui (exact_match)
+    Basse-Kotto -> Basse-Kotto (exact_match)
+    Haut-Mbomou -> Haut-Mbomou (exact_match)
+    Haute-Kotto -> Haute-Kotto (exact_match)
+    Kémo -> Kémo (exact_match)
+    Lobaye -> Lobaye (exact_match)
+    Mambéré-Kadéï -> Mambéré-Kadéï (exact_match)
+    Mbomou -> Mbomou (exact_match)
+    Nana-Mambéré -> Nana-Mambéré (exact_match)
+    Ouaka -> Ouaka (exact_match)
+    Ouham -> Ouham (exact_match)
+    Sangha-Mbaéré -> Sangha-Mbaéré (exact_match)
+    Vakaga -> Vakaga (exact_match)
+
+Cameroon (CMR):
+  Valid Regions: 10
+    Adamawa -> Adamaoua (mapped)
+    Centre -> Centre (exact_match)
+    East -> Est (mapped)
+    Far-North -> Extrême-Nord (mapped)
+    Littoral -> Littoral (exact_match)
+    North -> Nord (mapped)
+    North-West -> Nord-Ouest (mapped)
+    South -> Sud (mapped)
+    South-West -> Sud-Ouest (mapped)
+    West -> Ouest (mapped)
+
+Democratic Republic of Congo (COD):
+  Valid Regions: 33
+    Bas Uélé -> Bas-Uele (mapped)
+    Equateur -> Équateur (mapped)
+    Haut Uélé -> Haut-Uele (mapped)
+    Haut-Katanga -> Haut-Katanga (exact_match)
+    Haut-Lomami -> Haut-Lomami (exact_match)
+    Ituri -> Ituri (exact_match)
+    Kasai -> Kasaï (mapped)
+    Kasai Central -> Kasaï-Central (mapped)
+    Kasai Oriental -> Kasaï-Oriental (mapped)
+    Kasaï -> Kasaï (exact_match)
+    Kasaï Central -> Kasaï-Central (mapped)
+    Kasaï Oriental -> Kasaï-Oriental (mapped)
+    Kinshasa -> Kinshasa (exact_match)
+    Kongo Central -> Kongo-Central (mapped)
+    Kwango -> Kwango (exact_match)
+    Kwilu -> Kwilu (exact_match)
+    Lomami -> Lomami (exact_match)
+    Lualaba -> Lualaba (exact_match)
+    Maniema -> Maniema (exact_match)
+    Maï-Ndombe -> Mai-Ndombe (mapped)
+    Mongala -> Mongala (exact_match)
+    Nord Kivu -> Nord-Kivu (mapped)
+    Nord Ubangi -> Nord-Ubangi (mapped)
+    Nord-Kivu -> Nord-Kivu (exact_match)
+    Nord-Ubangi -> Nord-Ubangi (exact_match)
+    Sankuru -> Sankuru (exact_match)
+    Sud Kivu -> Sud-Kivu (mapped)
+    Sud Ubangi -> Sud-Ubangi (mapped)
+    Sud-Kivu -> Sud-Kivu (exact_match)
+    Sud-Ubangi -> Sud-Ubangi (exact_match)
+    Tanganyika -> Tanganyika (exact_match)
+    Tshopo -> Tshopo (exact_match)
+    Tshuapa -> Tshuapa (exact_match)
+
+Djibouti (DJI):
+  Valid Regions: 6
+    Ali Sabieh -> Ali Sabieh (exact_match)
+    Arta -> Arta (exact_match)
+    Dikhil -> Dikhil (exact_match)
+    Djibouti Ville -> Djiboutii (mapped)
+    Obock -> Obock (exact_match)
+    Tadjourah -> Tadjoura (mapped)
+
+Ethiopia (ETH):
+  Valid Regions: 9
+    Afar -> Afar (exact_match)
+    Amhara -> Amhara (exact_match)
+    Oromia -> Oromia (exact_match)
+    Oromiya -> Oromia (mapped)
+    SNNP -> Southern Nations, Nationalities (mapped)
+    SNNPR -> Southern Nations, Nationalities (mapped)
+    Sidama -> Southern Nations, Nationalities (mapped)
+    Somali -> Somali (exact_match)
+    Tigray -> Tigray (exact_match)
+
+Ghana (GHA):
+  Valid Regions: 16
+    Ahafo -> Ahafo (exact_match)
+    Ashanti -> Ashanti (exact_match)
+    Bono -> Bono (exact_match)
+    Bono East -> Bono East (exact_match)
+    Central -> Central (exact_match)
+    Eastern -> Eastern (exact_match)
+    Greater Accra -> Greater Accra (exact_match)
+    Northern -> Northern (exact_match)
+    Northern East -> North East (mapped)
+    Oti -> Oti (exact_match)
+    Savannah -> Savannah (exact_match)
+    Upper East -> Upper East (exact_match)
+    Upper West -> Upper West (exact_match)
+    Volta -> Volta (exact_match)
+    Western -> Western (exact_match)
+    Western North -> Western North (exact_match)
+
+Guinea (GIN):
+  Valid Regions: 8
+    Boke -> Boké (mapped)
+    Conakry -> Conakry (exact_match)
+    Faranah -> Faranah (exact_match)
+    Kankan -> Kankan (exact_match)
+    Kindia -> Kindia (exact_match)
+    Labe -> Labé (mapped)
+    Mamou -> Mamou (exact_match)
+    Nzerekore -> Nzérékoré (mapped)
+
+Honduras (HND):
+  Valid Regions: 0
+
+Haiti (HTI):
+  Valid Regions: 11
+    Artibonite -> L'Artibonite (mapped)
+    Centre -> Centre (exact_match)
+    Grand-Anse -> Grand'Anse (mapped)
+    Grande-Anse -> Grand'Anse (mapped)
+    Nippes -> Nippes (exact_match)
+    Nord -> Nord (exact_match)
+    Nord-Est -> Nord-Est (exact_match)
+    Nord-Ouest -> Nord-Ouest (exact_match)
+    Ouest -> Ouest (exact_match)
+    Sud -> Sud (exact_match)
+    Sud-Est -> Sud-Est (exact_match)
+
+Kenya (KEN):
+  Valid Regions: 0
+
+Lebanon (LBN):
+  Valid Regions: 3
+    Akkar -> Akkar (exact_match)
+    Baalbek & El Hermel -> Baalbak - Hermel (mapped)
+    Beirut -> Beirut (exact_match)
+
+Madagascar (MDG):
+  Valid Regions: 0
+
+Mali (MLI):
+  Valid Regions: 9
+    Bamako -> Bamako (exact_match)
+    Gao -> Gao (exact_match)
+    Kayes -> Kayes (exact_match)
+    Kidal -> Kidal (exact_match)
+    Koulikoro -> Koulikoro (exact_match)
+    Mopti -> Mopti (exact_match)
+    Segou -> Ségou (mapped)
+    Sikasso -> Sikasso (exact_match)
+    Tombouctou -> Timbuktu (mapped)
+
+Mozambique (MOZ):
+  Valid Regions: 11
+    Cabo Delgado -> Cabo Delgado (exact_match)
+    Gaza -> Gaza (exact_match)
+    Inhambane -> Inhambane (exact_match)
+    Manica -> Manica (exact_match)
+    Maputo -> Maputo (exact_match)
+    Maputo Cidade -> Maputo City (mapped)
+    Maputo City -> Maputo City (exact_match)
+    Nampula -> Nampula (exact_match)
+    Sofala -> Sofala (exact_match)
+    Tete -> Tete (exact_match)
+    Zambezia -> Zambezia (exact_match)
+
+Mauritania (MRT):
+  Valid Regions: 15
+    Adrar -> Adrar (exact_match)
+    Assaba -> Assaba (exact_match)
+    Brakna -> Brakna (exact_match)
+    Dakhlet-Nouadhibou -> Dakhlet Nouadhibou (mapped)
+    Gorgol -> Gorgol (exact_match)
+    Guidimakha -> Guidimaka (mapped)
+    Hodh Ech Chargi -> Hodh ech Chargui (mapped)
+    Hodh El Chargi -> Hodh ech Chargui (mapped)
+    Hodh El Gharbi -> Hodh el Gharbi (mapped)
+    Inchiri -> Inchiri (exact_match)
+    Nouakchott -> Nouakchott (exact_match)
+    Tagant -> Tagant (exact_match)
+    Tiris-Zemmour -> Tiris Zemmour (mapped)
+    Trarza -> Trarza (exact_match)
+    Tris-Zemmour -> Tiris Zemmour (mapped)
+
+Niger (NER):
+  Valid Regions: 9
+    Agadez -> Agadez (exact_match)
+    Diffa -> Diffa (exact_match)
+    Dosso -> Dosso (exact_match)
+    Maradi -> Maradi (exact_match)
+    Niamey -> Niamey (exact_match)
+    Tahoua -> Tahoua (exact_match)
+    Tillaberi -> Tillabéry (mapped)
+    Tillabéri -> Tillabéry (mapped)
+    Zinder -> Zinder (exact_match)
+
+Nigeria (NGA):
+  Valid Regions: 27
+    Abia -> Abia (exact_match)
+    Adamawa -> Adamawa (exact_match)
+    Bauchi -> Bauchi (exact_match)
+    Benue -> Benue (exact_match)
+    Borno -> Borno (exact_match)
+    Cross River -> Cross River (exact_match)
+    Edo -> Edo (exact_match)
+    Enugu -> Enugu (exact_match)
+    Federal Capital Territory -> Federal Capital Territory (exact_match)
+    Gombe -> Gombe (exact_match)
+    Jigawa -> Jigawa (exact_match)
+    Kaduna -> Kaduna (exact_match)
+    Kano -> Kano (exact_match)
+    Katsina -> Katsina (exact_match)
+    Kebbi -> Kebbi (exact_match)
+    Kogi -> Kogi (exact_match)
+    Kwara -> Kwara (exact_match)
+    Lagos -> Lagos (exact_match)
+    Nasarawa -> Nasarawa (exact_match)
+    Niger -> Niger (exact_match)
+    Ogun -> Ogun (exact_match)
+    Plateau -> Plateau (exact_match)
+    Rivers -> Rivers (exact_match)
+    Sokoto -> Sokoto (exact_match)
+    Taraba -> Taraba (exact_match)
+    Yobe -> Yobe (exact_match)
+    Zamfara -> Zamfara (exact_match)
+
+Sudan (SDN):
+  Valid Regions: 18
+    Aj Jazirah -> Al Jazirah (mapped)
+    Blue Nile -> Blue Nile (exact_match)
+    Central Darfur -> Central Darfur (exact_match)
+    East Darfur -> East Darfur (exact_match)
+    Gedaref -> Al Qadarif (mapped)
+    Kassala -> Kassala (exact_match)
+    Khartoum -> Khartoum (exact_match)
+    North Darfur -> North Darfur (exact_match)
+    North Kordofan -> North Kurdufan (mapped)
+    Northern -> Northern (exact_match)
+    Red Sea -> Red Sea (exact_match)
+    River Nile -> River Nile (exact_match)
+    Sennar -> Sennar (exact_match)
+    South Darfur -> South Darfur (exact_match)
+    South Kordofan -> South Kurdufan (mapped)
+    West Darfur -> West Darfur (exact_match)
+    West Kordofan -> West Kurdufan (mapped)
+    White Nile -> White Nile (exact_match)
+
+Senegal (SEN):
+  Valid Regions: 14
+    Dakar -> Dakar (exact_match)
+    Diourbel -> Diourbel (exact_match)
+    Fatick -> Fatick (exact_match)
+    Kaffrine -> Kaffrine (exact_match)
+    Kaolack -> Kaolack (exact_match)
+    Kedougou -> Kédougou (mapped)
+    Kolda -> Kolda (exact_match)
+    Louga -> Louga (exact_match)
+    Matam -> Matam (exact_match)
+    Saint Louis -> Saint-Louis (mapped)
+    Sedhiou -> Sédhiou (mapped)
+    Tambacounda -> Tambacounda (exact_match)
+    Thies -> Thiès (mapped)
+    Ziguinchor -> Ziguinchor (exact_match)
+
+Sierra Leone (SLE):
+  Valid Regions: 6
+    Eastern -> Eastern (exact_match)
+    Northern -> Northern (exact_match)
+    Nothern -> Northern (mapped)
+    Southern -> Southern (exact_match)
+    Western -> Western (exact_match)
+    Western Area -> Western (mapped)
+
+Somalia (SOM):
+  Valid Regions: 11
+    Awdal -> Awdal (exact_match)
+    Bakool -> Bakool (exact_match)
+    Bari -> Bari (exact_match)
+    Bay -> Bay (exact_match)
+    Gedo -> Gedo (exact_match)
+    Mudug -> Mudug (exact_match)
+    Nugaal -> Nugaal (exact_match)
+    Sanaag -> Sanaag (exact_match)
+    Sool -> Sool (exact_match)
+    Togdheer -> Togdheer (exact_match)
+    Woqooyi Galbeed -> Woqooyi Galbeed (exact_match)
+
+South Sudan (SSD):
+  Valid Regions: 5
+    Central Equatoria -> Central Equatoria (exact_match)
+    Eastern Equatoria -> Eastern Equatoria (exact_match)
+    Lakes -> Lakes (exact_match)
+    Unity -> Unity (exact_match)
+    Upper Nile -> Upper Nile (exact_match)
+
+Chad (TCD):
+  Valid Regions: 16
+    Batha -> Batha (exact_match)
+    Borkou -> Borkou (exact_match)
+    Chari-Baguirmi -> Chari-Baguirmi (exact_match)
+    Ennedi Ouest -> Ennedi Ouest (exact_match)
+    Hadjer-Lamis -> Hadjer-Lamis (exact_match)
+    Kanem -> Kanem (exact_match)
+    Lac -> Lac (exact_match)
+    Logone Occidental -> Logone Occidental (exact_match)
+    Logone Oriental -> Logone Oriental (exact_match)
+    Mandoul -> Mandoul (exact_match)
+    Mayo-Kebbi Ouest -> Mayo-Kebbi Ouest (exact_match)
+    Moyen-Chari -> Moyen-Chari (exact_match)
+    Salamat -> Salamat (exact_match)
+    Sila -> Sila (exact_match)
+    Tibesti -> Tibesti (exact_match)
+    Wadi Fira -> Wadi Fira (exact_match)
+
+Togo (TGO):
+  Valid Regions: 4
+    Kara -> Kara (exact_match)
+    Maritime -> Maritime (exact_match)
+    Plateaux -> Plateaux (exact_match)
+    Savanes -> Savanes (exact_match)
+
+Tanzania (TZA):
+  Valid Regions: 5
+    Kaskazini Pemba -> Kaskazini Pemba (exact_match)
+    Kaskazini Unguja -> Kaskazini Unguja (exact_match)
+    Kusini Pemba -> Kusini Pemba (exact_match)
+    Kusini Unguja -> Kusini Unguja (exact_match)
+    Mjini Magharibi -> Mjini Magharibi (exact_match)
+
+Uganda (UGA):
+  Valid Regions: 0
+
+Yemen (YEM):
+  Valid Regions: 12
+    Abyan -> Abyan (exact_match)
+    Al Hudaydah -> Al Hudaydah (exact_match)
+    Al Jawf -> Al Jawf (exact_match)
+    Al Mahwit -> Al Mahwit (exact_match)
+    Amanat Al Asimah -> Amanat Al Asimah (exact_match)
+    Amran -> Amran (exact_match)
+    Dhamar -> Dhamar (exact_match)
+    Hadramawt -> Hadramawt (exact_match)
+    Hajjah -> Hajjah (exact_match)
+    Ibb -> Ibb (exact_match)
+    Raymah -> Raymah (exact_match)
+    Shabwah -> Shabwah (exact_match)
+
+South Africa (ZAF):
+  Valid Regions: 9
+    Eastern Cape -> Eastern Cape (exact_match)
+    Free State -> Free State (exact_match)
+    Gauteng -> Gauteng (exact_match)
+    KwaZulu-Natal -> KwaZulu-Natal (exact_match)
+    Limpopo -> Limpopo (exact_match)
+    Mpumalanga -> Mpumalanga (exact_match)
+    North West -> North West (exact_match)
+    Nothern Cape -> Northern Cape (mapped)
+    Western Cape -> Western Cape (exact_match)
+
+Zambia (ZMB):
+  Valid Regions: 20
+    Central -> Central (exact_match)
+    Central Province -> Central (mapped)
+    Copperbelt -> Copperbelt (exact_match)
+    Eastern -> Eastern (exact_match)
+    Eastern Province -> Eastern (mapped)
+    Luapula -> Luapula (exact_match)
+    Luapula Province -> Luapula (mapped)
+    Lusaka -> Lusaka (exact_match)
+    Lusaka Province -> Lusaka (mapped)
+    Muchiga -> Muchinga (mapped)
+    Muchinga -> Muchinga (exact_match)
+    Muchinga Province -> Muchinga (mapped)
+    North Western Province -> North-Western (mapped)
+    North-Western -> North-Western (exact_match)
+    Northern -> Northern (exact_match)
+    Northern Province -> Northern (mapped)
+    Southern -> Southern (exact_match)
+    Southern Province -> Southern (mapped)
+    Western -> Western (exact_match)
+    Western Province -> Western (mapped)
+
+Zimbabwe (ZWE):
+  Valid Regions: 8
+    Manicaland -> Manicaland (exact_match)
+    Mashonaland Central -> Mashonaland Central (exact_match)
+    Mashonaland East -> Mashonaland East (exact_match)
+    Mashonaland West -> Mashonaland West (exact_match)
+    Masvingo -> Masvingo (exact_match)
+    Matabeleland North -> Matabeleland North (exact_match)
+    Matabeleland South -> Matabeleland South (exact_match)
+    Midlands -> Midlands (exact_match)
+
+Unmapped Regions (181):
+------------------------------
+  Yemen - Sana'a
+  Yemen - Ad Dali`
+  Yemen - Saada
+  Yemen - Socotra
+  Yemen - Marib
+  Yemen - Al Bayda
+  Yemen - Al Hodeidah
+  Yemen - Sanaa
+  Yemen - Ma`rib
+  Yemen - Taizz
+  Yemen - Ta`iz
+  Yemen - Al Dhalee
+  Yemen - Lahj
+  Yemen - Sa'ada
+  Yemen - Al Dhale'e
+  Yemen - Al Maharah
+  Yemen - Hadramaut
+  Yemen - Aden
+  Kenya - Urban Analysis
+  Kenya - ASAL Counties
+  ... and 161 more

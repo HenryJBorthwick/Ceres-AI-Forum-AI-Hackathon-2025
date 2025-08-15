@@ -1,0 +1,151 @@
+POTENTIAL REGION MAPPINGS
+========================================
+
+Mauritania (MRT)
+  Hodh El Gharbi -> Hodh el Gharbi
+  Similarity: 1.00
+
+Somalia (SOM)
+  Woqooyi Galbeed  -> Woqooyi Galbeed
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Central Province -> Central
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Western Province -> Western
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Southern Province -> Southern
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Lusaka Province -> Lusaka
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Eastern Province -> Eastern
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Muchinga Province -> Muchinga
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Luapula Province -> Luapula
+  Similarity: 1.00
+
+Zambia (ZMB)
+  Northern Province -> Northern
+  Similarity: 1.00
+
+Central African Republic (CAF)
+  Haut-Oubangui -> Bangui
+  Similarity: 0.80
+
+Central African Republic (CAF)
+  Ouham-Fafa -> Ouham
+  Similarity: 0.80
+
+Central African Republic (CAF)
+  Bangui Ville -> Bangui
+  Similarity: 0.80
+
+Central African Republic (CAF)
+  Mambéré -> Mambéré-Kadéï
+  Similarity: 0.80
+
+Central African Republic (CAF)
+  Mambéré -> Nana-Mambéré
+  Similarity: 0.80
+
+Central African Republic (CAF)
+  Ouham Pendé -> Ouham
+  Similarity: 0.80
+
+Cameroon (CMR)
+  South-West -> Est
+  Similarity: 0.80
+
+Cameroon (CMR)
+  West -> Est
+  Similarity: 0.80
+
+Cameroon (CMR)
+  North-West -> Est
+  Similarity: 0.80
+
+Democratic Republic of Congo (COD)
+  Kasaï Oriental -> Kasaï
+  Similarity: 0.80
+
+Democratic Republic of Congo (COD)
+  Kasaï Central -> Kasaï
+  Similarity: 0.80
+
+Djibouti (DJI)
+  Tadjourah -> Tadjoura
+  Similarity: 0.80
+
+Ghana (GHA)
+  Northern East -> Northern
+  Similarity: 0.80
+
+Haiti (HTI)
+  Artibonite -> L'Artibonite
+  Similarity: 0.80
+
+Lebanon (LBN)
+  West bekaa -> Bekaa
+  Similarity: 0.80
+
+Mozambique (MOZ)
+  Provincia de Maputo -> Maputo
+  Similarity: 0.80
+
+Mozambique (MOZ)
+  Maputo Cidade -> Maputo
+  Similarity: 0.80
+
+Mozambique (MOZ)
+  Maputo e Matola -> Maputo
+  Similarity: 0.80
+
+Sierra Leone (SLE)
+  Western Area -> Western
+  Similarity: 0.80
+
+Somalia (SOM)
+  Bay Bakool Low Potential Agropastoral -> Bakool
+  Similarity: 0.80
+
+Somalia (SOM)
+  Bay Bakool Low Potential Agropastoral -> Bay
+  Similarity: 0.80
+
+Somalia (SOM)
+  Togdheer Agropastoral -> Togdheer
+  Similarity: 0.80
+
+Uganda (UGA)
+  Kampala City -> Kampala
+  Similarity: 0.80
+
+Yemen (YEM)
+  Al Bayda -> Al Bayda'
+  Similarity: 0.80
+
+Yemen (YEM)
+  Ta`iz -> Ta`izz
+  Similarity: 0.80
+
+Zambia (ZMB)
+  Western Province -> North-Western
+  Similarity: 0.80
+
+Zambia (ZMB)
+  North Western Province -> Western
+  Similarity: 0.80
+

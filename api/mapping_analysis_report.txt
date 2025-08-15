@@ -1,0 +1,1540 @@
+COMPREHENSIVE MAPPING ANALYSIS REPORT
+============================================================
+
+SUMMARY STATISTICS
+------------------------------
+Total countries analyzed: 35
+Total exact matches: 278
+Total IPC-only regions: 254
+Total satellite-only regions: 299
+
+COUNTRY-BY-COUNTRY BREAKDOWN
+============================================================
+
+Afghanistan (AFG)
+-----------------
+IPC regions: 8
+Satellite regions: 34
+Exact matches: 8
+IPC only: 0
+Satellite only: 26
+  Exact matches:
+    ✓ Badakhshan
+    ✓ Baghlan
+    ✓ Kunar
+    ✓ Kunduz
+    ✓ Laghman
+    ✓ Nangarhar
+    ✓ Nuristan
+    ✓ Takhar
+  Satellite-only regions:
+    🛰️  Badghis
+    🛰️  Balkh
+    🛰️  Bamyan
+    🛰️  Daykundi
+    🛰️  Farah
+    🛰️  Faryab
+    🛰️  Ghazni
+    🛰️  Ghor
+    🛰️  Hilmand
+    🛰️  Hirat
+    🛰️  Jawzjan
+    🛰️  Kabul
+    🛰️  Kandahar
+    🛰️  Kapisa
+    🛰️  Khost
+    🛰️  Logar
+    🛰️  Nimroz
+    🛰️  Paktika
+    🛰️  Paktya
+    🛰️  Panjshir
+    🛰️  Parwan
+    🛰️  Samangan
+    🛰️  Sari Pul
+    🛰️  Uruzgan
+    🛰️  Wardak
+    🛰️  Zabul
+
+Angola (AGO)
+------------
+IPC regions: 11
+Satellite regions: 18
+Exact matches: 3
+IPC only: 8
+Satellite only: 15
+  Exact matches:
+    ✓ Cunene
+    ✓ Huíla
+    ✓ Namibe
+  IPC-only regions (need mapping):
+    ❌ Cahama
+    ❌ Cuangar
+    ❌ Cuanhama
+    ❌ Cuchi
+    ❌ Gambos (ex-Chiange)
+    ❌ Matala
+    ❌ Ombadja
+    ❌ Quilengues
+  Satellite-only regions:
+    🛰️  Bengo
+    🛰️  Benguela
+    🛰️  Bié
+    🛰️  Cabinda
+    🛰️  Cuando Cubango
+    🛰️  Cuanza Norte
+    🛰️  Cuanza Sul
+    🛰️  Huambo
+    🛰️  Luanda
+    🛰️  Lunda Norte
+    🛰️  Lunda Sul
+    🛰️  Malanje
+    🛰️  Moxico
+    🛰️  Uíge
+    🛰️  Zaire
+
+Benin (BEN)
+-----------
+IPC regions: 12
+Satellite regions: 12
+Exact matches: 9
+IPC only: 3
+Satellite only: 3
+  Exact matches:
+    ✓ Alibori
+    ✓ Atlantique
+    ✓ Borgou
+    ✓ Collines
+    ✓ Donga
+    ✓ Littoral
+    ✓ Mono
+    ✓ Plateau
+    ✓ Zou
+  IPC-only regions (need mapping):
+    ❌ Atacora
+    ❌ Couffo
+    ❌ Oueme
+  Satellite-only regions:
+    🛰️  Atakora
+    🛰️  Kouffo
+    🛰️  Ouémé
+
+Burkina Faso (BFA)
+------------------
+IPC regions: 13
+Satellite regions: 13
+Exact matches: 11
+IPC only: 2
+Satellite only: 2
+  Exact matches:
+    ✓ Boucle du Mouhoun
+    ✓ Cascades
+    ✓ Centre
+    ✓ Centre-Est
+    ✓ Centre-Nord
+    ✓ Centre-Ouest
+    ✓ Centre-Sud
+    ✓ Est
+    ✓ Nord
+    ✓ Sahel
+    ✓ Sud-Ouest
+  IPC-only regions (need mapping):
+    ❌ Hauts-Bassins
+    ❌ Plateau Central
+  Satellite-only regions:
+    🛰️  Haut-Bassins
+    🛰️  Plateau-Central
+
+Bangladesh (BGD)
+----------------
+IPC regions: 12
+Satellite regions: 8
+Exact matches: 8
+IPC only: 4
+Satellite only: 0
+  Exact matches:
+    ✓ Barisal
+    ✓ Chittagong
+    ✓ Dhaka
+    ✓ Khulna
+    ✓ Mymensingh
+    ✓ Rajshahi
+    ✓ Rangpur
+    ✓ Sylhet
+  IPC-only regions (need mapping):
+    ❌ Barishal
+    ❌ Chattogram
+    ❌ Cox Host & Displaced
+    ❌ Forcibly Displaced Myanmar Nationals
+
+Central African Republic (CAF)
+------------------------------
+IPC regions: 29
+Satellite regions: 17
+Exact matches: 14
+IPC only: 15
+Satellite only: 3
+  Exact matches:
+    ✓ Bamingui-Bangoran
+    ✓ Bangui
+    ✓ Basse-Kotto
+    ✓ Haut-Mbomou
+    ✓ Haute-Kotto
+    ✓ Kémo
+    ✓ Lobaye
+    ✓ Mambéré-Kadéï
+    ✓ Mbomou
+    ✓ Nana-Mambéré
+    ✓ Ouaka
+    ✓ Ouham
+    ✓ Sangha-Mbaéré
+    ✓ Vakaga
+  IPC-only regions (need mapping):
+    ❌ Bangui Ville
+    ❌ Concentrations in Prefectures analyzed
+    ❌ Equateur
+    ❌ Fertit
+    ❌ Haut-Oubangui
+    ❌ Kagas
+    ❌ Lim-pendé
+    ❌ Mambéré
+    ❌ Nana-Gribizi
+    ❌ Ombella M'Poko
+    ❌ Ouham Pendé
+    ❌ Ouham-Fafa
+    ❌ Plateaux
+    ❌ Prefectures
+    ❌ Yadé
+  Satellite-only regions:
+    🛰️  Nana-Grébizi
+    🛰️  Ombella-M'Poko
+    🛰️  Ouham-Pendé
+
+Cameroon (CMR)
+--------------
+IPC regions: 10
+Satellite regions: 10
+Exact matches: 2
+IPC only: 8
+Satellite only: 8
+  Exact matches:
+    ✓ Centre
+    ✓ Littoral
+  IPC-only regions (need mapping):
+    ❌ Adamawa
+    ❌ East
+    ❌ Far-North
+    ❌ North
+    ❌ North-West
+    ❌ South
+    ❌ South-West
+    ❌ West
+  Satellite-only regions:
+    🛰️  Adamaoua
+    🛰️  Est
+    🛰️  Extrême-Nord
+    🛰️  Nord
+    🛰️  Nord-Ouest
+    🛰️  Ouest
+    🛰️  Sud
+    🛰️  Sud-Ouest
+
+Democratic Republic of Congo (COD)
+----------------------------------
+IPC regions: 34
+Satellite regions: 26
+Exact matches: 19
+IPC only: 15
+Satellite only: 7
+  Exact matches:
+    ✓ Haut-Katanga
+    ✓ Haut-Lomami
+    ✓ Ituri
+    ✓ Kasaï
+    ✓ Kinshasa
+    ✓ Kwango
+    ✓ Kwilu
+    ✓ Lomami
+    ✓ Lualaba
+    ✓ Maniema
+    ✓ Mongala
+    ✓ Nord-Kivu
+    ✓ Nord-Ubangi
+    ✓ Sankuru
+    ✓ Sud-Kivu
+    ✓ Sud-Ubangi
+    ✓ Tanganyika
+    ✓ Tshopo
+    ✓ Tshuapa
+  IPC-only regions (need mapping):
+    ❌ Bas Uélé
+    ❌ Equateur
+    ❌ Haut Uélé
+    ❌ Kasai
+    ❌ Kasai Central
+    ❌ Kasai Oriental
+    ❌ Kasaï Central
+    ❌ Kasaï Oriental
+    ❌ Kongo Central
+    ❌ Maï-Ndombe
+    ❌ Nord Kivu
+    ❌ Nord Ubangi
+    ❌ Populations Déplacées Internes (PDI)
+    ❌ Sud Kivu
+    ❌ Sud Ubangi
+  Satellite-only regions:
+    🛰️  Bas-Uele
+    🛰️  Haut-Uele
+    🛰️  Kasaï-Central
+    🛰️  Kasaï-Oriental
+    🛰️  Kongo-Central
+    🛰️  Mai-Ndombe
+    🛰️  Équateur
+
+Djibouti (DJI)
+--------------
+IPC regions: 6
+Satellite regions: 6
+Exact matches: 4
+IPC only: 2
+Satellite only: 2
+  Exact matches:
+    ✓ Ali Sabieh
+    ✓ Arta
+    ✓ Dikhil
+    ✓ Obock
+  IPC-only regions (need mapping):
+    ❌ Djibouti Ville
+    ❌ Tadjourah
+  Satellite-only regions:
+    🛰️  Djiboutii
+    🛰️  Tadjoura
+
+Ethiopia (ETH)
+--------------
+IPC regions: 9
+Satellite regions: 11
+Exact matches: 5
+IPC only: 4
+Satellite only: 6
+  Exact matches:
+    ✓ Afar
+    ✓ Amhara
+    ✓ Oromia
+    ✓ Somali
+    ✓ Tigray
+  IPC-only regions (need mapping):
+    ❌ Oromiya
+    ❌ SNNP
+    ❌ SNNPR
+    ❌ Sidama
+  Satellite-only regions:
+    🛰️  Addis Abeba
+    🛰️  Benshangul-Gumaz
+    🛰️  Dire Dawa
+    🛰️  Gambela Peoples
+    🛰️  Harari People
+    🛰️  Southern Nations, Nationalities
+
+Ghana (GHA)
+-----------
+IPC regions: 16
+Satellite regions: 16
+Exact matches: 15
+IPC only: 1
+Satellite only: 1
+  Exact matches:
+    ✓ Ahafo
+    ✓ Ashanti
+    ✓ Bono
+    ✓ Bono East
+    ✓ Central
+    ✓ Eastern
+    ✓ Greater Accra
+    ✓ Northern
+    ✓ Oti
+    ✓ Savannah
+    ✓ Upper East
+    ✓ Upper West
+    ✓ Volta
+    ✓ Western
+    ✓ Western North
+  IPC-only regions (need mapping):
+    ❌ Northern East
+  Satellite-only regions:
+    🛰️  North East
+
+Guinea (GIN)
+------------
+IPC regions: 8
+Satellite regions: 8
+Exact matches: 5
+IPC only: 3
+Satellite only: 3
+  Exact matches:
+    ✓ Conakry
+    ✓ Faranah
+    ✓ Kankan
+    ✓ Kindia
+    ✓ Mamou
+  IPC-only regions (need mapping):
+    ❌ Boke
+    ❌ Labe
+    ❌ Nzerekore
+  Satellite-only regions:
+    🛰️  Boké
+    🛰️  Labé
+    🛰️  Nzérékoré
+
+Honduras (HND)
+--------------
+IPC regions: 1
+Satellite regions: 18
+Exact matches: 0
+IPC only: 1
+Satellite only: 18
+  IPC-only regions (need mapping):
+    ❌ Occidente
+  Satellite-only regions:
+    🛰️  Atlántida
+    🛰️  Choluteca
+    🛰️  Colón
+    🛰️  Comayagua
+    🛰️  Copán
+    🛰️  Cortés
+    🛰️  El Paraíso
+    🛰️  Francisco Morazán
+    🛰️  Gracias a Dios
+    🛰️  Intibucá
+    🛰️  Islas de la Bahía
+    🛰️  La Paz
+    🛰️  Lempira
+    🛰️  Ocotepeque
+    🛰️  Olancho
+    🛰️  Santa Bárbara
+    🛰️  Valle
+    🛰️  Yoro
+
+Haiti (HTI)
+-----------
+IPC regions: 24
+Satellite regions: 10
+Exact matches: 8
+IPC only: 16
+Satellite only: 2
+  Exact matches:
+    ✓ Centre
+    ✓ Nippes
+    ✓ Nord
+    ✓ Nord-Est
+    ✓ Nord-Ouest
+    ✓ Ouest
+    ✓ Sud
+    ✓ Sud-Est
+  IPC-only regions (need mapping):
+    ❌ Artibonite
+    ❌ Carrefour
+    ❌ Cite Soleil
+    ❌ Cité_Soleil
+    ❌ Croix des Bouquets
+    ❌ Croix-Des-Bouquets
+    ❌ Delmas
+    ❌ Grand-Anse
+    ❌ Grande-Anse
+    ❌ Petion-Ville
+    ❌ Port au Prince
+    ❌ Port-au-Prince
+    ❌ Pétion-Ville
+    ❌ Tabarre
+    ❌ ZMPAP
+    ❌ Zone Métropolitaine
+  Satellite-only regions:
+    🛰️  Grand'Anse
+    🛰️  L'Artibonite
+
+Kenya (KEN)
+-----------
+IPC regions: 3
+Satellite regions: 47
+Exact matches: 0
+IPC only: 3
+Satellite only: 47
+  IPC-only regions (need mapping):
+    ❌ ASAL Counties
+    ❌ Others
+    ❌ Urban Analysis
+  Satellite-only regions:
+    🛰️  Baringo
+    🛰️  Bomet
+    🛰️  Bungoma
+    🛰️  Busia
+    🛰️  Elgeyo-Marakwet
+    🛰️  Embu
+    🛰️  Garissa
+    🛰️  Homa Bay
+    🛰️  Isiolo
+    🛰️  Kajiado
+    🛰️  Kakamega
+    🛰️  Kericho
+    🛰️  Kiambu
+    🛰️  Kilifi
+    🛰️  Kirinyaga
+    🛰️  Kisii
+    🛰️  Kisumu
+    🛰️  Kitui
+    🛰️  Kwale
+    🛰️  Laikipia
+    🛰️  Lamu
+    🛰️  Machakos
+    🛰️  Makueni
+    🛰️  Mandera
+    🛰️  Marsabit
+    🛰️  Meru
+    🛰️  Migori
+    🛰️  Mombasa
+    🛰️  Murang'a
+    🛰️  Nairobi
+    🛰️  Nakuru
+    🛰️  Nandi
+    🛰️  Narok
+    🛰️  Nyamira
+    🛰️  Nyandarua
+    🛰️  Nyeri
+    🛰️  Samburu
+    🛰️  Siaya
+    🛰️  Taita Taveta
+    🛰️  Tana River
+    🛰️  Tharaka-Nithi
+    🛰️  Trans Nzoia
+    🛰️  Turkana
+    🛰️  Uasin Gishu
+    🛰️  Vihiga
+    🛰️  Wajir
+    🛰️  West Pokot
+
+Lebanon (LBN)
+-------------
+IPC regions: 35
+Satellite regions: 8
+Exact matches: 2
+IPC only: 33
+Satellite only: 6
+  Exact matches:
+    ✓ Akkar
+    ✓ Beirut
+  IPC-only regions (need mapping):
+    ❌ Aley
+    ❌ Baabda
+    ❌ Baalbek
+    ❌ Baalbek & El Hermel
+    ❌ Bcharre
+    ❌ Bent Jbeil & Marjaayoun
+    ❌ Bent jbell
+    ❌ Chouf
+    ❌ El Koura & El Batroun
+    ❌ El batroun
+    ❌ El hermel
+    ❌ El koura
+    ❌ El meten
+    ❌ El minieh-dennie
+    ❌ El nabatieh
+    ❌ Hasbaya
+    ❌ Jbeil
+    ❌ Jbell
+    ❌ Jezzine
+    ❌ Kesrwane
+    ❌ Marjaayoun
+    ❌ Others
+    ❌ Palestinian Refugees
+    ❌ Rachaya
+    ❌ Rachaya & Hasbaya
+    ❌ Saida
+    ❌ Sour
+    ❌ Tripoli
+    ❌ West bekaa
+    ❌ Zahie
+    ❌ Zahle
+    ❌ Zgharta
+    ❌ Zgharta & Bcharre
+  Satellite-only regions:
+    🛰️  Baalbak - Hermel
+    🛰️  Bekaa
+    🛰️  Mount Lebanon
+    🛰️  Nabatiyeh
+    🛰️  North
+    🛰️  South
+
+Madagascar (MDG)
+----------------
+IPC regions: 21
+Satellite regions: 6
+Exact matches: 0
+IPC only: 21
+Satellite only: 6
+  IPC-only regions (need mapping):
+    ❌ ANDROY
+    ❌ ANOSY
+    ❌ ATSIMO ANDREFANA
+    ❌ ATSIMO ATSINANANA
+    ❌ Analanjirofo
+    ❌ Androy
+    ❌ Anosy
+    ❌ Atsimo Andrefana
+    ❌ Atsimo Atsinana
+    ❌ Atsimo Atsinanana
+    ❌ Atsimo-Atsinana
+    ❌ Atsimo-andrefana
+    ❌ Atsinanana
+    ❌ Diana
+    ❌ FITOVINANY
+    ❌ Fitovivany
+    ❌ Sava
+    ❌ VATOVAVY
+    ❌ VATOVAVY FITOVINANY
+    ❌ Vatovavy
+    ❌ Vatovavy Fitovinany
+  Satellite-only regions:
+    🛰️  Antananarivo
+    🛰️  Antsiranana
+    🛰️  Fianarantsoa
+    🛰️  Mahajanga
+    🛰️  Toamasina
+    🛰️  Toliary
+
+Mali (MLI)
+----------
+IPC regions: 9
+Satellite regions: 9
+Exact matches: 7
+IPC only: 2
+Satellite only: 2
+  Exact matches:
+    ✓ Bamako
+    ✓ Gao
+    ✓ Kayes
+    ✓ Kidal
+    ✓ Koulikoro
+    ✓ Mopti
+    ✓ Sikasso
+  IPC-only regions (need mapping):
+    ❌ Segou
+    ❌ Tombouctou
+  Satellite-only regions:
+    🛰️  Ségou
+    🛰️  Timbuktu
+
+Mozambique (MOZ)
+----------------
+IPC regions: 18
+Satellite regions: 11
+Exact matches: 10
+IPC only: 8
+Satellite only: 1
+  Exact matches:
+    ✓ Cabo Delgado
+    ✓ Gaza
+    ✓ Inhambane
+    ✓ Manica
+    ✓ Maputo
+    ✓ Maputo City
+    ✓ Nampula
+    ✓ Sofala
+    ✓ Tete
+    ✓ Zambezia
+  IPC-only regions (need mapping):
+    ❌ Acolhedores
+    ❌ Centro
+    ❌ Deslocados
+    ❌ Maputo Cidade
+    ❌ Maputo e Matola
+    ❌ Niassa
+    ❌ Provincia de Maputo
+    ❌ Sul
+  Satellite-only regions:
+    🛰️  Nassa
+
+Mauritania (MRT)
+----------------
+IPC regions: 15
+Satellite regions: 13
+Exact matches: 8
+IPC only: 7
+Satellite only: 5
+  Exact matches:
+    ✓ Adrar
+    ✓ Assaba
+    ✓ Brakna
+    ✓ Gorgol
+    ✓ Inchiri
+    ✓ Nouakchott
+    ✓ Tagant
+    ✓ Trarza
+  IPC-only regions (need mapping):
+    ❌ Dakhlet-Nouadhibou
+    ❌ Guidimakha
+    ❌ Hodh Ech Chargi
+    ❌ Hodh El Chargi
+    ❌ Hodh El Gharbi
+    ❌ Tiris-Zemmour
+    ❌ Tris-Zemmour
+  Satellite-only regions:
+    🛰️  Dakhlet Nouadhibou
+    🛰️  Guidimaka
+    🛰️  Hodh ech Chargui
+    🛰️  Hodh el Gharbi
+    🛰️  Tiris Zemmour
+
+Niger (NER)
+-----------
+IPC regions: 9
+Satellite regions: 8
+Exact matches: 7
+IPC only: 2
+Satellite only: 1
+  Exact matches:
+    ✓ Agadez
+    ✓ Diffa
+    ✓ Dosso
+    ✓ Maradi
+    ✓ Niamey
+    ✓ Tahoua
+    ✓ Zinder
+  IPC-only regions (need mapping):
+    ❌ Tillaberi
+    ❌ Tillabéri
+  Satellite-only regions:
+    🛰️  Tillabéry
+
+Nigeria (NGA)
+-------------
+IPC regions: 27
+Satellite regions: 37
+Exact matches: 27
+IPC only: 0
+Satellite only: 10
+  Exact matches:
+    ✓ Abia
+    ✓ Adamawa
+    ✓ Bauchi
+    ✓ Benue
+    ✓ Borno
+    ✓ Cross River
+    ✓ Edo
+    ✓ Enugu
+    ✓ Federal Capital Territory
+    ✓ Gombe
+    ✓ Jigawa
+    ✓ Kaduna
+    ✓ Kano
+    ✓ Katsina
+    ✓ Kebbi
+    ✓ Kogi
+    ✓ Kwara
+    ✓ Lagos
+    ✓ Nasarawa
+    ✓ Niger
+    ✓ Ogun
+    ✓ Plateau
+    ✓ Rivers
+    ✓ Sokoto
+    ✓ Taraba
+    ✓ Yobe
+    ✓ Zamfara
+  Satellite-only regions:
+    🛰️  Akwa Ibom
+    🛰️  Anambra
+    🛰️  Bayelsa
+    🛰️  Delta
+    🛰️  Ebonyi
+    🛰️  Ekiti
+    🛰️  Imo
+    🛰️  Ondo
+    🛰️  Osun
+    🛰️  Oyo
+
+Sudan (SDN)
+-----------
+IPC regions: 18
+Satellite regions: 18
+Exact matches: 13
+IPC only: 5
+Satellite only: 5
+  Exact matches:
+    ✓ Blue Nile
+    ✓ Central Darfur
+    ✓ East Darfur
+    ✓ Kassala
+    ✓ Khartoum
+    ✓ North Darfur
+    ✓ Northern
+    ✓ Red Sea
+    ✓ River Nile
+    ✓ Sennar
+    ✓ South Darfur
+    ✓ West Darfur
+    ✓ White Nile
+  IPC-only regions (need mapping):
+    ❌ Aj Jazirah
+    ❌ Gedaref
+    ❌ North Kordofan
+    ❌ South Kordofan
+    ❌ West Kordofan
+  Satellite-only regions:
+    🛰️  Al Jazirah
+    🛰️  Al Qadarif
+    🛰️  North Kurdufan
+    🛰️  South Kurdufan
+    🛰️  West Kurdufan
+
+Senegal (SEN)
+-------------
+IPC regions: 14
+Satellite regions: 14
+Exact matches: 10
+IPC only: 4
+Satellite only: 4
+  Exact matches:
+    ✓ Dakar
+    ✓ Diourbel
+    ✓ Fatick
+    ✓ Kaffrine
+    ✓ Kaolack
+    ✓ Kolda
+    ✓ Louga
+    ✓ Matam
+    ✓ Tambacounda
+    ✓ Ziguinchor
+  IPC-only regions (need mapping):
+    ❌ Kedougou
+    ❌ Saint Louis
+    ❌ Sedhiou
+    ❌ Thies
+  Satellite-only regions:
+    🛰️  Kédougou
+    🛰️  Saint-Louis
+    🛰️  Sédhiou
+    🛰️  Thiès
+
+Sierra Leone (SLE)
+------------------
+IPC regions: 6
+Satellite regions: 4
+Exact matches: 4
+IPC only: 2
+Satellite only: 0
+  Exact matches:
+    ✓ Eastern
+    ✓ Northern
+    ✓ Southern
+    ✓ Western
+  IPC-only regions (need mapping):
+    ❌ Nothern
+    ❌ Western Area
+
+Somalia (SOM)
+-------------
+IPC regions: 44
+Satellite regions: 18
+Exact matches: 11
+IPC only: 33
+Satellite only: 7
+  Exact matches:
+    ✓ Awdal
+    ✓ Bakool
+    ✓ Bari
+    ✓ Bay
+    ✓ Gedo
+    ✓ Mudug
+    ✓ Nugaal
+    ✓ Sanaag
+    ✓ Sool
+    ✓ Togdheer
+    ✓ Woqooyi Galbeed
+  IPC-only regions (need mapping):
+    ❌ Addun Pastoral
+    ❌ Banadir
+    ❌ Bay Bakool Low Potential Agropastoral
+    ❌ Coastal Deeh Pastoral & Fishing
+    ❌ Cowpea Belt
+    ❌ East Golis - Frankincense, Goats & Fishing
+    ❌ Galgaduud
+    ❌ Guban Pastoral
+    ❌ Hawd Pastoral
+    ❌ Hawd Pastoral - NW
+    ❌ Hiraan
+    ❌ Juba Dhexe
+    ❌ Juba Hoose
+    ❌ Juba Pastoral -  Cattle & Goats
+    ❌ Lower Juba
+    ❌ Lower Shabelle
+    ❌ Middle Juba
+    ❌ Middle Shabelle
+    ❌ Northern Inland Pastoral - Goat & Sheep
+    ❌ Northwest Agropastoral
+    ❌ Riverine Pump irrigation
+    ❌ Riverine Pump/gravity irrigation
+    ❌ Riverine gravity irrigation
+    ❌ Shabelle Dhexe
+    ❌ Shabelle Hoose
+    ❌ Sorghum High Potential Agropastoral
+    ❌ Southern Agropastoral - Goat,Camel,Sorghum
+    ❌ Southern Inland Pastoral  Camels, Goat/Sheep, Cattle
+    ❌ Southern Rainfed - Maize, Cattle & Goats
+    ❌ Togdheer Agropastoral
+    ❌ Urban & IDPs
+    ❌ West Golis Pastoral
+    ❌ Woqooyi Galbeed 
+  Satellite-only regions:
+    🛰️  Banaadir
+    🛰️  Galguduud
+    🛰️  Hiiraan
+    🛰️  Jubbada Dhexe
+    🛰️  Jubbada Hoose
+    🛰️  Shabeellaha Dhexe
+    🛰️  Shabeellaha Hoose
+
+South Sudan (SSD)
+-----------------
+IPC regions: 12
+Satellite regions: 10
+Exact matches: 5
+IPC only: 7
+Satellite only: 5
+  Exact matches:
+    ✓ Central Equatoria
+    ✓ Eastern Equatoria
+    ✓ Lakes
+    ✓ Unity
+    ✓ Upper Nile
+  IPC-only regions (need mapping):
+    ❌ Jonglei
+    ❌ Northern Bahr el Ghazal
+    ❌ Others
+    ❌ Returnees
+    ❌ Warrap
+    ❌ Western Bahr el Ghazal
+    ❌ Western Equatoria
+  Satellite-only regions:
+    🛰️  Jungoli
+    🛰️  North Bahr-al-Ghazal
+    🛰️  Warap
+    🛰️  West Bahr-al-Ghazal
+    🛰️  West Equatoria
+
+Chad (TCD)
+----------
+IPC regions: 22
+Satellite regions: 23
+Exact matches: 16
+IPC only: 6
+Satellite only: 7
+  Exact matches:
+    ✓ Batha
+    ✓ Borkou
+    ✓ Chari-Baguirmi
+    ✓ Ennedi Ouest
+    ✓ Hadjer-Lamis
+    ✓ Kanem
+    ✓ Lac
+    ✓ Logone Occidental
+    ✓ Logone Oriental
+    ✓ Mandoul
+    ✓ Mayo-Kebbi Ouest
+    ✓ Moyen-Chari
+    ✓ Salamat
+    ✓ Sila
+    ✓ Tibesti
+    ✓ Wadi Fira
+  IPC-only regions (need mapping):
+    ❌ Barh-El-Gazel
+    ❌ Ennedi-Est
+    ❌ Guera
+    ❌ Mayo Kebbi Est
+    ❌ Ouaddai
+    ❌ Tandjile
+  Satellite-only regions:
+    🛰️  Barh el Ghazel
+    🛰️  Ennedi Est
+    🛰️  Guéra
+    🛰️  Mayo-Kebbi Est
+    🛰️  Ouaddaï
+    🛰️  Tandjilé
+    🛰️  Ville de N'Djamena
+
+Togo (TGO)
+----------
+IPC regions: 5
+Satellite regions: 5
+Exact matches: 4
+IPC only: 1
+Satellite only: 1
+  Exact matches:
+    ✓ Kara
+    ✓ Maritime
+    ✓ Plateaux
+    ✓ Savanes
+  IPC-only regions (need mapping):
+    ❌ Centrale
+  Satellite-only regions:
+    🛰️  Centre
+
+Tanzania (TZA)
+--------------
+IPC regions: 7
+Satellite regions: 31
+Exact matches: 5
+IPC only: 2
+Satellite only: 26
+  Exact matches:
+    ✓ Kaskazini Pemba
+    ✓ Kaskazini Unguja
+    ✓ Kusini Pemba
+    ✓ Kusini Unguja
+    ✓ Mjini Magharibi
+  IPC-only regions (need mapping):
+    ❌ Mainland
+    ❌ Zanzibar
+  Satellite-only regions:
+    🛰️  Arusha
+    🛰️  Dar es Salaam
+    🛰️  Dodoma
+    🛰️  Geita
+    🛰️  Iringa
+    🛰️  Kagera
+    🛰️  Katavi
+    🛰️  Kigoma
+    🛰️  Kilimanjaro
+    🛰️  Lindi
+    🛰️  Manyara
+    🛰️  Mara
+    🛰️  Mbeya
+    🛰️  Morogoro
+    🛰️  Mtwara
+    🛰️  Mwanza
+    🛰️  Njombe
+    🛰️  Pwani
+    🛰️  Rukwa
+    🛰️  Ruvuma
+    🛰️  Shinyanga
+    🛰️  Simiyu
+    🛰️  Singida
+    🛰️  Songwe
+    🛰️  Tabora
+    🛰️  Tanga
+
+Uganda (UGA)
+------------
+IPC regions: 7
+Satellite regions: 58
+Exact matches: 0
+IPC only: 7
+Satellite only: 58
+  IPC-only regions (need mapping):
+    ❌ Kampala City
+    ❌ Karamoja
+    ❌ Karamoja sub-region
+    ❌ Refugee Settlements
+    ❌ Refugee hosting districts
+    ❌ Teso sub-region
+    ❌ Urban Centers
+  Satellite-only regions:
+    🛰️  Adjumani
+    🛰️  Apac
+    🛰️  Arua
+    🛰️  Bugiri
+    🛰️  Bundibugyo
+    🛰️  Bushenyi
+    🛰️  Busia
+    🛰️  Gulu
+    🛰️  Hoima
+    🛰️  Iganga
+    🛰️  Jinja
+    🛰️  Kabale
+    🛰️  Kabarole
+    🛰️  Kaberamaido
+    🛰️  Kalangala
+    🛰️  Kampala
+    🛰️  Kamuli
+    🛰️  Kamwenge
+    🛰️  Kanungu
+    🛰️  Kapchorwa
+    🛰️  Kasese
+    🛰️  Katakwi
+    🛰️  Kayunga
+    🛰️  Kibale
+    🛰️  Kiboga
+    🛰️  Kisoro
+    🛰️  Kitgum
+    🛰️  Kotido
+    🛰️  Kumi
+    🛰️  Kyenjojo
+    🛰️  Lake Albert
+    🛰️  Lake Victoria
+    🛰️  Lira
+    🛰️  Luwero
+    🛰️  Masaka
+    🛰️  Masindi
+    🛰️  Mayuge
+    🛰️  Mbale
+    🛰️  Mbarara
+    🛰️  Moroto
+    🛰️  Moyo
+    🛰️  Mpigi
+    🛰️  Mubende
+    🛰️  Mukono
+    🛰️  Nakapiripirit
+    🛰️  Nakasongola
+    🛰️  Nebbi
+    🛰️  Ntungamo
+    🛰️  Pader
+    🛰️  Pallisa
+    🛰️  Rakai
+    🛰️  Rukungiri
+    🛰️  Sembabule
+    🛰️  Sironko
+    🛰️  Soroti
+    🛰️  Tororo
+    🛰️  Wakiso
+    🛰️  Yumbe
+
+Yemen (YEM)
+-----------
+IPC regions: 30
+Satellite regions: 21
+Exact matches: 12
+IPC only: 18
+Satellite only: 9
+  Exact matches:
+    ✓ Abyan
+    ✓ Al Hudaydah
+    ✓ Al Jawf
+    ✓ Al Mahwit
+    ✓ Amanat Al Asimah
+    ✓ Amran
+    ✓ Dhamar
+    ✓ Hadramawt
+    ✓ Hajjah
+    ✓ Ibb
+    ✓ Raymah
+    ✓ Shabwah
+  IPC-only regions (need mapping):
+    ❌ Ad Dali`
+    ❌ Aden
+    ❌ Al Bayda
+    ❌ Al Dhale'e
+    ❌ Al Dhalee
+    ❌ Al Hodeidah
+    ❌ Al Maharah
+    ❌ Hadramaut
+    ❌ Lahj
+    ❌ Ma`rib
+    ❌ Marib
+    ❌ Sa'ada
+    ❌ Saada
+    ❌ Sana'a
+    ❌ Sanaa
+    ❌ Socotra
+    ❌ Ta`iz
+    ❌ Taizz
+  Satellite-only regions:
+    🛰️  Al Bayda'
+    🛰️  Al Dali'
+    🛰️  Al Mahrah
+    🛰️  Lahij
+    🛰️  Ma'rib
+    🛰️  Sa`dah
+    🛰️  San`a'
+    🛰️  Ta`izz
+    🛰️  `Adan
+
+South Africa (ZAF)
+------------------
+IPC regions: 9
+Satellite regions: 9
+Exact matches: 8
+IPC only: 1
+Satellite only: 1
+  Exact matches:
+    ✓ Eastern Cape
+    ✓ Free State
+    ✓ Gauteng
+    ✓ KwaZulu-Natal
+    ✓ Limpopo
+    ✓ Mpumalanga
+    ✓ North West
+    ✓ Western Cape
+  IPC-only regions (need mapping):
+    ❌ Nothern Cape
+  Satellite-only regions:
+    🛰️  Northern Cape
+
+Zambia (ZMB)
+------------
+IPC regions: 20
+Satellite regions: 10
+Exact matches: 10
+IPC only: 10
+Satellite only: 0
+  Exact matches:
+    ✓ Central
+    ✓ Copperbelt
+    ✓ Eastern
+    ✓ Luapula
+    ✓ Lusaka
+    ✓ Muchinga
+    ✓ North-Western
+    ✓ Northern
+    ✓ Southern
+    ✓ Western
+  IPC-only regions (need mapping):
+    ❌ Central Province
+    ❌ Eastern Province
+    ❌ Luapula Province
+    ❌ Lusaka Province
+    ❌ Muchiga
+    ❌ Muchinga Province
+    ❌ North Western Province
+    ❌ Northern Province
+    ❌ Southern Province
+    ❌ Western Province
+
+Zimbabwe (ZWE)
+--------------
+IPC regions: 8
+Satellite regions: 10
+Exact matches: 8
+IPC only: 0
+Satellite only: 2
+  Exact matches:
+    ✓ Manicaland
+    ✓ Mashonaland Central
+    ✓ Mashonaland East
+    ✓ Mashonaland West
+    ✓ Masvingo
+    ✓ Matabeleland North
+    ✓ Matabeleland South
+    ✓ Midlands
+  Satellite-only regions:
+    🛰️  Bulawayo
+    🛰️  Harare
+
+============================================================
+PRIORITY REGIONS FOR MAPPING
+============================================================
+
+Lebanon (LBN) - 33 unmapped regions:
+  - Aley
+  - Baabda
+  - Baalbek
+  - Baalbek & El Hermel
+  - Bcharre
+  - Bent Jbeil & Marjaayoun
+  - Bent jbell
+  - Chouf
+  - El Koura & El Batroun
+  - El batroun
+  - El hermel
+  - El koura
+  - El meten
+  - El minieh-dennie
+  - El nabatieh
+  - Hasbaya
+  - Jbeil
+  - Jbell
+  - Jezzine
+  - Kesrwane
+  - Marjaayoun
+  - Others
+  - Palestinian Refugees
+  - Rachaya
+  - Rachaya & Hasbaya
+  - Saida
+  - Sour
+  - Tripoli
+  - West bekaa
+  - Zahie
+  - Zahle
+  - Zgharta
+  - Zgharta & Bcharre
+
+Somalia (SOM) - 33 unmapped regions:
+  - Addun Pastoral
+  - Banadir
+  - Bay Bakool Low Potential Agropastoral
+  - Coastal Deeh Pastoral & Fishing
+  - Cowpea Belt
+  - East Golis - Frankincense, Goats & Fishing
+  - Galgaduud
+  - Guban Pastoral
+  - Hawd Pastoral
+  - Hawd Pastoral - NW
+  - Hiraan
+  - Juba Dhexe
+  - Juba Hoose
+  - Juba Pastoral -  Cattle & Goats
+  - Lower Juba
+  - Lower Shabelle
+  - Middle Juba
+  - Middle Shabelle
+  - Northern Inland Pastoral - Goat & Sheep
+  - Northwest Agropastoral
+  - Riverine Pump irrigation
+  - Riverine Pump/gravity irrigation
+  - Riverine gravity irrigation
+  - Shabelle Dhexe
+  - Shabelle Hoose
+  - Sorghum High Potential Agropastoral
+  - Southern Agropastoral - Goat,Camel,Sorghum
+  - Southern Inland Pastoral  Camels, Goat/Sheep, Cattle
+  - Southern Rainfed - Maize, Cattle & Goats
+  - Togdheer Agropastoral
+  - Urban & IDPs
+  - West Golis Pastoral
+  - Woqooyi Galbeed 
+
+Madagascar (MDG) - 21 unmapped regions:
+  - ANDROY
+  - ANOSY
+  - ATSIMO ANDREFANA
+  - ATSIMO ATSINANANA
+  - Analanjirofo
+  - Androy
+  - Anosy
+  - Atsimo Andrefana
+  - Atsimo Atsinana
+  - Atsimo Atsinanana
+  - Atsimo-Atsinana
+  - Atsimo-andrefana
+  - Atsinanana
+  - Diana
+  - FITOVINANY
+  - Fitovivany
+  - Sava
+  - VATOVAVY
+  - VATOVAVY FITOVINANY
+  - Vatovavy
+  - Vatovavy Fitovinany
+
+Yemen (YEM) - 18 unmapped regions:
+  - Ad Dali`
+  - Aden
+  - Al Bayda
+  - Al Dhale'e
+  - Al Dhalee
+  - Al Hodeidah
+  - Al Maharah
+  - Hadramaut
+  - Lahj
+  - Ma`rib
+  - Marib
+  - Sa'ada
+  - Saada
+  - Sana'a
+  - Sanaa
+  - Socotra
+  - Ta`iz
+  - Taizz
+
+Haiti (HTI) - 16 unmapped regions:
+  - Artibonite
+  - Carrefour
+  - Cite Soleil
+  - Cité_Soleil
+  - Croix des Bouquets
+  - Croix-Des-Bouquets
+  - Delmas
+  - Grand-Anse
+  - Grande-Anse
+  - Petion-Ville
+  - Port au Prince
+  - Port-au-Prince
+  - Pétion-Ville
+  - Tabarre
+  - ZMPAP
+  - Zone Métropolitaine
+
+Central African Republic (CAF) - 15 unmapped regions:
+  - Bangui Ville
+  - Concentrations in Prefectures analyzed
+  - Equateur
+  - Fertit
+  - Haut-Oubangui
+  - Kagas
+  - Lim-pendé
+  - Mambéré
+  - Nana-Gribizi
+  - Ombella M'Poko
+  - Ouham Pendé
+  - Ouham-Fafa
+  - Plateaux
+  - Prefectures
+  - Yadé
+
+Democratic Republic of Congo (COD) - 15 unmapped regions:
+  - Bas Uélé
+  - Equateur
+  - Haut Uélé
+  - Kasai
+  - Kasai Central
+  - Kasai Oriental
+  - Kasaï Central
+  - Kasaï Oriental
+  - Kongo Central
+  - Maï-Ndombe
+  - Nord Kivu
+  - Nord Ubangi
+  - Populations Déplacées Internes (PDI)
+  - Sud Kivu
+  - Sud Ubangi
+
+Zambia (ZMB) - 10 unmapped regions:
+  - Central Province
+  - Eastern Province
+  - Luapula Province
+  - Lusaka Province
+  - Muchiga
+  - Muchinga Province
+  - North Western Province
+  - Northern Province
+  - Southern Province
+  - Western Province
+
+Angola (AGO) - 8 unmapped regions:
+  - Cahama
+  - Cuangar
+  - Cuanhama
+  - Cuchi
+  - Gambos (ex-Chiange)
+  - Matala
+  - Ombadja
+  - Quilengues
+
+Cameroon (CMR) - 8 unmapped regions:
+  - Adamawa
+  - East
+  - Far-North
+  - North
+  - North-West
+  - South
+  - South-West
+  - West
+
+Mozambique (MOZ) - 8 unmapped regions:
+  - Acolhedores
+  - Centro
+  - Deslocados
+  - Maputo Cidade
+  - Maputo e Matola
+  - Niassa
+  - Provincia de Maputo
+  - Sul
+
+Mauritania (MRT) - 7 unmapped regions:
+  - Dakhlet-Nouadhibou
+  - Guidimakha
+  - Hodh Ech Chargi
+  - Hodh El Chargi
+  - Hodh El Gharbi
+  - Tiris-Zemmour
+  - Tris-Zemmour
+
+South Sudan (SSD) - 7 unmapped regions:
+  - Jonglei
+  - Northern Bahr el Ghazal
+  - Others
+  - Returnees
+  - Warrap
+  - Western Bahr el Ghazal
+  - Western Equatoria
+
+Uganda (UGA) - 7 unmapped regions:
+  - Kampala City
+  - Karamoja
+  - Karamoja sub-region
+  - Refugee Settlements
+  - Refugee hosting districts
+  - Teso sub-region
+  - Urban Centers
+
+Chad (TCD) - 6 unmapped regions:
+  - Barh-El-Gazel
+  - Ennedi-Est
+  - Guera
+  - Mayo Kebbi Est
+  - Ouaddai
+  - Tandjile
+
+Sudan (SDN) - 5 unmapped regions:
+  - Aj Jazirah
+  - Gedaref
+  - North Kordofan
+  - South Kordofan
+  - West Kordofan
+
+Bangladesh (BGD) - 4 unmapped regions:
+  - Barishal
+  - Chattogram
+  - Cox Host & Displaced
+  - Forcibly Displaced Myanmar Nationals
+
+Ethiopia (ETH) - 4 unmapped regions:
+  - Oromiya
+  - SNNP
+  - SNNPR
+  - Sidama
+
+Senegal (SEN) - 4 unmapped regions:
+  - Kedougou
+  - Saint Louis
+  - Sedhiou
+  - Thies
+
+Benin (BEN) - 3 unmapped regions:
+  - Atacora
+  - Couffo
+  - Oueme
+
+Guinea (GIN) - 3 unmapped regions:
+  - Boke
+  - Labe
+  - Nzerekore
+
+Kenya (KEN) - 3 unmapped regions:
+  - ASAL Counties
+  - Others
+  - Urban Analysis
+
+Burkina Faso (BFA) - 2 unmapped regions:
+  - Hauts-Bassins
+  - Plateau Central
+
+Djibouti (DJI) - 2 unmapped regions:
+  - Djibouti Ville
+  - Tadjourah
+
+Mali (MLI) - 2 unmapped regions:
+  - Segou
+  - Tombouctou
+
+Niger (NER) - 2 unmapped regions:
+  - Tillaberi
+  - Tillabéri
+
+Sierra Leone (SLE) - 2 unmapped regions:
+  - Nothern
+  - Western Area
+
+Tanzania (TZA) - 2 unmapped regions:
+  - Mainland
+  - Zanzibar
+
+Ghana (GHA) - 1 unmapped regions:
+  - Northern East
+
+Honduras (HND) - 1 unmapped regions:
+  - Occidente
+
+Togo (TGO) - 1 unmapped regions:
+  - Centrale
+
+South Africa (ZAF) - 1 unmapped regions:
+  - Nothern Cape
