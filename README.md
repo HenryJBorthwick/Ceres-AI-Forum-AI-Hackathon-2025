@@ -10,6 +10,10 @@ A web-based tool for visualizing IPC (Integrated Food Security Phase Classificat
 - **AI-powered predictions for 2025 using satellite embeddings**
 - Responsive design with Tailwind CSS
 
+## Demo
+
+Watch the demo recording: [View Demo Video](https://drive.google.com/drive/folders/1l3dRC8Xoe5sIWdJNtHJkqTVCakvrLaIG)
+
 ## Setup
 
 ### Prerequisites
